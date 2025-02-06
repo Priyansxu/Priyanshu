@@ -1,5 +1,5 @@
 import './globals.css';
-import SpaceEffect from "@/components/SpaceEffect";
+import SpaceEffects from "@/components/SpaceEffect";
 
 export const metadata = {
   title: '',
@@ -10,9 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-     <SpaceEffect>
+     <SpaceEffects>
      {children}
-     </SpaceEffect>
+     </SpaceEffects>
      </body>
     </html>
   );
