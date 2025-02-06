@@ -12,8 +12,11 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "three": "latest",
     "tailwindcss": "latest",
     "autoprefixer": "latest",
-    "postcss": "latest"
+    "postcss": "latest",
+    "@react-three/drei": "latest",
+    "@react-three/fiber": "latest"
   }
 }
