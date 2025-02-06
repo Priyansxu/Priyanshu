@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Canvas } from "@react-three/fiber";
-import SpaceEffects from "@/components/SpaceEffect";
+import { Canvas } from "@react-three/fiber"
+import SpaceEffects from "@/components/SpaceEffect"
 
 export default function Page() {
   return (
@@ -10,11 +10,6 @@ export default function Page() {
         <color attach="background" args={["#000000"]} />
         <SpaceEffects />
       </Canvas>
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <h1 className="text-4xl font-bold text-white">
-          Welcome to the page!
-        </h1>
-      </div>
     </main>
-  );
+  )
 }
