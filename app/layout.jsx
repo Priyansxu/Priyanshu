@@ -1,6 +1,14 @@
+import './globals.css';
+
+export const metadata = {
+  title: '',
+  description: '',
+};
+
 export default function RootLayout({ children }) {
   return (
-    <main className="h-screen w-full bg-black">{children}
-    </main>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
