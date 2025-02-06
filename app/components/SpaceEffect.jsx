@@ -115,7 +115,7 @@ function ShootingStars() {
   )
 }
 
-export function SpaceEffects() {
+export default function SpaceEffects() {
   return (
     <>
       <RandomParticles count={6000} color="#ffffff" size={0.15} speed={0.01} />
