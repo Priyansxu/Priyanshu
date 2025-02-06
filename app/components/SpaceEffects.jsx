@@ -119,9 +119,9 @@ function SpaceScene() {
   return (
     <>
       <color attach="background" args={["#000000"]} />
-      <RandomParticles count={6000} color="#ffffff" size={0.13} speed={0.015} />
+      <RandomParticles count={4000} color="#ffffff" size={0.13} speed={0.015} />
       <RandomParticles count={3000} color="#88ccff" size={0.12} speed={0.015} />
-      <RandomParticles count={1500} color="#ffaa44" size={0.13} speed={0.02} />
+      <RandomParticles count={1500} color="#ffaa44" size={0.13} speed={0.017} />
       <ShootingStars />
     </>
   )
