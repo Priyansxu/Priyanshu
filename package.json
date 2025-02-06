@@ -13,10 +13,11 @@
   },
   "devDependencies": {
     "three": "latest",
+    "postcss": "latest",
     "tailwindcss": "latest",
     "autoprefixer": "latest",
-    "postcss": "latest",
     "@react-three/drei": "latest",
-    "@react-three/fiber": "latest"
+    "@react-three/fiber": "latest",
+    "@react-spring/web": "latest"
   }
 }
