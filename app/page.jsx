@@ -1,5 +1,3 @@
-"use client";
-
 import Head from "next/head";
 import ASCIIText from '@/components/text/ASCIIText';
 import TrueFocus from '@/components/text/TrueFocus';
