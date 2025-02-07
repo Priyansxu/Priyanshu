@@ -8,8 +8,8 @@ export default function Page() {
       <div>
         <ASCIIText
           text='Priyanshu Gupta'
-          enableWaves={true}
-          asciiFontSize={1}
+          enableWaves={false}
+          asciiFontSize={6}
           className="relative m-6"
         />
       </div>
