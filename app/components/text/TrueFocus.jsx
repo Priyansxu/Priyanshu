@@ -9,6 +9,7 @@ const TrueFocus = ({
   glowColor = "rgba(0, 0, 255, 0.6)",
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
+  textSize = "1rem",
 }) => {
   const words = sentence.split(" ");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -66,15 +67,16 @@ const TrueFocus = ({
           <span
             key={index}
             ref={(el) => (wordRefs.current[index] = el)}
-            className="relative text-[3rem] font-bold text-white cursor-pointer"
+            className="relative font-bold text-white cursor-pointer"
             style={{
+              fontSize: textSize,
               filter: manualMode
                 ? isActive
                   ? `blur(0px)`
                   : `blur(${blurAmount}px)`
                 : isActive
-                  ? `blur(0px)`
-                  : `blur(${blurAmount}px)`,
+                ? `blur(0px)`
+                : `blur(${blurAmount}px)`,
               "--border-color": borderColor,
               "--glow-color": glowColor,
               transition: `filter ${animationDuration}s ease`,
