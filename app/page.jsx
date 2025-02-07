@@ -12,8 +12,7 @@ export default function Page() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    </Head>
       <div>
-        <TrueFocus sentence="Priyanshu Gupta" className="m-6 relative p-6 text-xl" />
-        <BlurText text="Isn't this so cool?!" className="text-2xl mb-8 text-white font-medium" />
+        <BlurText text="Priyanshu Gupta" className="text-2xl m-8 text-white font-bold" />
          </div>
     </main>
   );
