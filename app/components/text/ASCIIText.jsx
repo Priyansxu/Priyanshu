@@ -181,7 +181,7 @@ class AsciiFilter {
 }
 
 class CanvasTxt {
-  constructor(txt, { fontSize = 50, fontFamily = 'Arial', color = '#fdf9f3' } = {}) {
+  constructor(txt, { fontSize = 200, fontFamily = 'Arial', color = '#fdf9f3' } = {}) {
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
     this.txt = txt;
@@ -366,8 +366,8 @@ class CanvAscii {
 // =========== React component ===========
 export default function ASCIIText({
   text = 'David!',
-  asciiFontSize = 6,
-  textFontSize = 50,
+  asciiFontSize = 5,
+  textFontSize = 5,
   textColor = '#fdf9f3',
   planeBaseHeight = 8,
   enableWaves = true
