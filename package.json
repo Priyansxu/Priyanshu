@@ -16,6 +16,7 @@
     "postcss": "8.4.35",
     "tailwindcss": "3.4.1",
     "autoprefixer": "10.4.17",
+    "framer-motion": "12.4.1",
     "@react-three/drei": "9.97.5",
     "@react-three/fiber": "8.15.16",
     "@react-spring/web": "9.7.3"
