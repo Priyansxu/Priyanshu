@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const TrueFocus = ({
-  sentence = "True Focus",
+  sentence = "text",
   manualMode = false,
-  blurAmount = 5,
-  borderColor = "green",
-  glowColor = "rgba(0, 255, 0, 0.6)",
+  blurAmount = 4,
+  borderColor = "blue",
+  glowColor = "rgba(0, 0, 255, 0.6)",
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
 }) => {
