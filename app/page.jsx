@@ -10,6 +10,7 @@ export default function Page() {
           text='Priyanshu Gupta'
           enableWaves={false}
           asciiFontSize={6}
+          textFontSize={10}
           className="relative m-6"
         />
       </div>
