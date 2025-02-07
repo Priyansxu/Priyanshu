@@ -1,6 +1,3 @@
-"use client"
-
-import Space from "@/components/SpaceEffects"
 import ASCIIText from '@/components/text/ASCIIText';
 
 export default function Page() {
