@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <main className="relative min-h-screen flex">
       <div>
-        <ASCIIText text='Priyanshu Gupta' enableWaves={true} className="relative m-6" />
+        <ASCIIText text='Priyanshu' enableWaves={true} className="relative m-6" />
       </div>
     </main>
   );
