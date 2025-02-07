@@ -11,15 +11,7 @@ export default function Page() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    </Head>
       <div>
-        <TrueFocus 
-sentence="Priyanshu Gupta"
-manualMode={false}
-blurAmount={5}
-borderColor="red"
-animationDuration={2}
-pauseBetweenAnimations={1}
-className="m-6"
-/>
+        <TrueFocus sentence="Priyanshu Gupta" className="m-6 relative p-6 text-lg" />
          </div>
     </main>
   );
