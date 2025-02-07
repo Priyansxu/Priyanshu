@@ -6,7 +6,6 @@ import ASCIIText from '@/components/text/ASCIIText';
 export default function Page() {
   return (
     <main className="relative">
-      <Space />
   <div>
     <ASCIIText
   text='Priyanshu Gupta'
