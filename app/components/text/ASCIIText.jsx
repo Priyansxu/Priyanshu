@@ -366,8 +366,8 @@ class CanvAscii {
 // =========== React component ===========
 export default function ASCIIText({
   text = 'David!',
-  asciiFontSize = 8,
-  textFontSize = 200,
+  asciiFontSize = 6,
+  textFontSize = 50,
   textColor = '#fdf9f3',
   planeBaseHeight = 8,
   enableWaves = true
