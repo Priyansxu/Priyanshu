@@ -246,7 +246,7 @@ class CanvAscii {
     this.enableWaves = enableWaves;
 
     this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 1, 1000);
-    this.camera.position.z = 30;
+    this.camera.position.z = 20;
 
     this.scene = new THREE.Scene();
     this.mouse = { x: 0, y: 0 };
@@ -365,11 +365,11 @@ class CanvAscii {
 
 // =========== React component ===========
 export default function ASCIIText({
-  text = 'David!',
-  asciiFontSize = 5,
-  textFontSize = 5,
+  text = 'Text',
+  asciiFontSize = 6,
+  textFontSize = 120,
   textColor = '#fdf9f3',
-  planeBaseHeight = 8,
+  planeBaseHeight = 6,
   enableWaves = true
 }) {
   const containerRef = useRef(null);
