@@ -68,7 +68,7 @@ class AsciiFilter {
 
     this.deg = 0;
     this.invert = invert ?? true;
-    this.fontSize = fontSize ?? 12;
+    this.fontSize = fontSize ?? 3;
     this.fontFamily = fontFamily ?? "'Courier New', monospace";
     this.charset =
       charset ??
@@ -107,7 +107,7 @@ class AsciiFilter {
     this.pre.style.fontSize = `${this.fontSize}px`;
     this.pre.style.margin = '0';
     this.pre.style.padding = '0';
-    this.pre.style.lineHeight = '1em';
+    this.pre.style.lineHeight = '0.8em';
     this.pre.style.position = 'absolute';
     this.pre.style.left = '50%';
     this.pre.style.top = '50%';
@@ -246,7 +246,7 @@ class CanvAscii {
     this.enableWaves = enableWaves;
 
     this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 1, 1000);
-    this.camera.position.z = 20;
+    this.camera.position.z = 15;
 
     this.scene = new THREE.Scene();
     this.mouse = { x: 0, y: 0 };
@@ -366,10 +366,10 @@ class CanvAscii {
 // =========== React component ===========
 export default function ASCIIText({
   text = 'Text',
-  asciiFontSize = 6,
-  textFontSize = 120,
+  asciiFontSize = 3,
+  textFontSize = 60,
   textColor = '#fdf9f3',
-  planeBaseHeight = 6,
+  planeBaseHeight = 3,
   enableWaves = true
 }) {
   const containerRef = useRef(null);
