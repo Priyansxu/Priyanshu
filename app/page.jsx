@@ -9,8 +9,8 @@ export default function Page() {
         <ASCIIText
           text='Priyanshu Gupta'
           enableWaves={false}
-          asciiFontSize={6}
-          textFontSize={10}
+          asciiFontSize={5}
+          textFontSize={5}
           className="relative m-6"
         />
       </div>
