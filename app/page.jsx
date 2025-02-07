@@ -13,7 +13,7 @@ export default function Page() {
    </Head>
       <div>
         <TrueFocus sentence="Priyanshu Gupta" className="m-6 relative p-6 text-xl" />
-        <BlurText text="Isn't this so cool?!" className="text-2xl mb-8" />
+        <BlurText text="Isn't this so cool?!" className="text-2xl mb-8 text-white font-medium" />
          </div>
     </main>
   );
