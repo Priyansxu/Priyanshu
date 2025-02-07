@@ -107,7 +107,7 @@ class AsciiFilter {
     this.pre.style.fontSize = `${this.fontSize}px`;
     this.pre.style.margin = '0';
     this.pre.style.padding = '0';
-    this.pre.style.lineHeight = '0.8em';
+    this.pre.style.lineHeight = '1em';
     this.pre.style.position = 'absolute';
     this.pre.style.left = '50%';
     this.pre.style.top = '50%';
