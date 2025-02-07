@@ -4,12 +4,12 @@ import ASCIIText from '@/components/text/ASCIIText';
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen flex items-center justify-center">
+    <main className="relative min-h-screen flex">
       <div className="w-full">
         <ASCIIText
           text='Priyanshu Gupta'
           enableWaves={true}
-          asciiFontSize={4}
+          asciiFontSize={1}
           className="relative m-6"
         />
       </div>
