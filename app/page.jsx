@@ -11,7 +11,6 @@ export default function Page() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    </Head>
       <div>
-        <ASCIIText text='Priyanshu' enableWaves={true} className="relative m-6" />
         <TrueFocus 
 sentence="Priyanshu Gupta"
 manualMode={false}
@@ -19,7 +18,7 @@ blurAmount={5}
 borderColor="red"
 animationDuration={2}
 pauseBetweenAnimations={1}
-className="relative m-6"
+className="m-6"
 />
          </div>
     </main>
