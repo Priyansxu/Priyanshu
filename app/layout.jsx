@@ -1,5 +1,5 @@
 import './globals.css';
-import Space from "@/components/SpaceEffects"
+import Aurora from "@/components/Aurora"
 
 export const metadata = {
   title: 'Priyanshu G.',
@@ -9,15 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <div className="relative min-h-screen">
-          <div className="fixed inset-0 z-0">
-            <Space />
-          </div>
-          <div className="relative z-10">
-            {children}
-          </div>
-        </div>
+      <body className="relative w-full h-full overflow-hidden">
+        <Aurora colorStops={["#00d8ff", "#7cff67", "#ff7f7f"]} amplitude={1.5} />
+        <div className="absolute inset-0 z-10">{children}</div>
       </body>
     </html>
   );
