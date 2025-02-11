@@ -4,7 +4,11 @@ module.exports = {
     "./app/components/**/*.{js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        ranade: ['Ranade', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
