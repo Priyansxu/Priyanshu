@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ranade: ['Ranade', 'sans-serif'],
+        ranade: ['RanadeBold', 'sans-serif'],
       },
     },
   },
