@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Aurora from "@/components/Aurora"
-import BlurText from "@/components/BlurText";
+import BlurText from "@/components/text/BlurText";
 
 
 export default function Page() {
