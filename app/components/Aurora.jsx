@@ -74,10 +74,6 @@ struct ColorStop {
     float position;
 };
 
-/**
- * Helper macro to blend between consecutive ColorStops
- * based on vUv.x
- */
 #define COLOR_RAMP(colors, factor, finalColor) {              \
     int index = 0;                                            \
     for (int i = 0; i < colors.length() - 1; i++) {           \
@@ -93,30 +89,29 @@ struct ColorStop {
 }
 
 void main() {
-    // Build our three color stops from uniform array uColorStops
     ColorStop colors[3];
     colors[0] = ColorStop(uColorStops[0], 0.0);
     colors[1] = ColorStop(uColorStops[1], 0.5);
     colors[2] = ColorStop(uColorStops[2], 1.0);
 
-    // Interpolate color along vUv.x
     vec3 rampColor;
     COLOR_RAMP(colors, vUv.x, rampColor);
 
-    // Noise-based "height," scaled by amplitude
-    float height = snoise(vec2(vUv.x * 2.0 + uTime * 0.1, uTime * 0.25)) 
-                   * 0.5 
+    // Reduced noise scale and modified height calculation
+    float height = snoise(vec2(vUv.x * 1.5 + uTime * 0.1, uTime * 0.2)) 
+                   * 0.3  // Reduced from 0.5
                    * uAmplitude;
-    height = exp(height);
-    height = (vUv.y * 2.0 - height + 0.2);
+    height = exp(height * 0.7); // Reduced exponential scaling
+    height = (vUv.y * 1.5 - height + 0.15); // Adjusted vertical scaling and offset
 
-    fragColor.rgb = 0.6 * height * rampColor;
+    // Reduced color intensity
+    fragColor.rgb = 0.4 * height * rampColor; // Reduced from 0.6
     fragColor.a = 1.0;
 }
 `;
 
 export default function Aurora(props) {
-  const { colorStops = ["#00d8ff", "#7cff67", "#00d8ff"], amplitude = 1.0 } =
+  const { colorStops = ["#00d8ff", "#7cff67", "#00d8ff"], amplitude = 0.7 } = // Reduced default amplitude
     props;
 
   const propsRef = useRef(props);
@@ -168,10 +163,10 @@ export default function Aurora(props) {
     const update = (t) => {
       animateId = requestAnimationFrame(update);
 
-      const { time = t * 0.01, speed = 1.0 } = propsRef.current;
+      const { time = t * 0.01, speed = 0.8 } = propsRef.current; // Reduced default speed
       program.uniforms.uTime.value = time * speed * 0.1;
 
-      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
+      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 0.7;
       const stops = propsRef.current.colorStops ?? colorStops;
       program.uniforms.uColorStops.value = stops.map((hex) => {
         const c = new Color(hex);
@@ -190,7 +185,6 @@ export default function Aurora(props) {
 
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amplitude, colorStops]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
