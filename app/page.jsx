@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import Aurora from "@/components/Aurora"
 import BlurText from "@/components/text/BlurText";
