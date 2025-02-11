@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Renade';
-  src: url('/Ranade-Bold.otf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
+  font-family: 'RanadeBold';
+  src: url('/Ranade-Bold.otf') format('opentype');
 }
