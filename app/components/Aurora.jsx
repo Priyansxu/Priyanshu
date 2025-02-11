@@ -97,21 +97,21 @@ void main() {
     vec3 rampColor;
     COLOR_RAMP(colors, vUv.x, rampColor);
 
-    // Reduced noise scale and modified height calculation
-    float height = snoise(vec2(vUv.x * 1.5 + uTime * 0.1, uTime * 0.2)) 
-                   * 0.3  // Reduced from 0.5
+    // Slightly reduced noise scale and height calculation
+    float height = snoise(vec2(vUv.x * 1.8 + uTime * 0.1, uTime * 0.25)) 
+                   * 0.45  // Slightly reduced from 0.5
                    * uAmplitude;
-    height = exp(height * 0.7); // Reduced exponential scaling
-    height = (vUv.y * 1.5 - height + 0.15); // Adjusted vertical scaling and offset
+    height = exp(height * 0.9); // Slightly reduced exponential scaling
+    height = (vUv.y * 1.8 - height + 0.18); // Slightly adjusted vertical scaling and offset
 
-    // Reduced color intensity
-    fragColor.rgb = 0.4 * height * rampColor; // Reduced from 0.6
+    // Slightly reduced color intensity
+    fragColor.rgb = 0.55 * height * rampColor; // Slightly reduced from 0.6
     fragColor.a = 1.0;
 }
 `;
 
 export default function Aurora(props) {
-  const { colorStops = ["#00d8ff", "#7cff67", "#00d8ff"], amplitude = 0.7 } = // Reduced default amplitude
+  const { colorStops = ["#00d8ff", "#7cff67", "#00d8ff"], amplitude = 0.9 } = // Slightly reduced default amplitude
     props;
 
   const propsRef = useRef(props);
@@ -163,10 +163,10 @@ export default function Aurora(props) {
     const update = (t) => {
       animateId = requestAnimationFrame(update);
 
-      const { time = t * 0.01, speed = 0.8 } = propsRef.current; // Reduced default speed
+      const { time = t * 0.01, speed = 0.95 } = propsRef.current; // Slightly reduced default speed
       program.uniforms.uTime.value = time * speed * 0.1;
 
-      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 0.7;
+      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 0.9;
       const stops = propsRef.current.colorStops ?? colorStops;
       program.uniforms.uColorStops.value = stops.map((hex) => {
         const c = new Color(hex);
