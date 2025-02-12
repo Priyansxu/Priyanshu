@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         ranade: ['RanadeBold', 'sans-serif'],
+        monaBold: ['MonaSansBold', 'sans-serif'],
       },
     },
   },
