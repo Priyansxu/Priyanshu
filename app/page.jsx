@@ -11,7 +11,7 @@ export default function Page() {
     <main className="min-h-screen">
      <section className="h-screen flex items-center justify-center">
       <div className="text-center text-white font-ranade">
-      <SplitText text="PRIYANSHU G." className="text-4xl font-bold font-monaBold mb-4" />
+      <SplitText text="PRIYANSHU G." className="text-4xl font-bold tracking-wider font-monaBold mb-4" />
         <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#ffffff" />
       </div>
     </section>
