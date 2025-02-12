@@ -3,6 +3,7 @@
 import Head from "next/head";
 import Aurora from "@/components/Aurora"
 import SplitText from "@/components/text/SplitText";
+import TextPressure from "@/components/text/TextPressure";
 
 
 export default function Page() {
@@ -11,7 +12,7 @@ export default function Page() {
      <section className="h-screen flex items-center justify-center">
       <div className="text-center text-white font-ranade">
       <SplitText text="PRIYANSHU G." className="text-4xl font-bold font-monaBold mb-4" />
-        <p className="text-md">Web Developer & Designer</p>
+        <TextPressure text="Web Developer & Designer" minFontSize={36} textColor="#ffffff" />
       </div>
     </section>
     </main>
