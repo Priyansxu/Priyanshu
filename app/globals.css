@@ -6,3 +6,8 @@
   font-family: 'RanadeBold';
   src: url('/Ranade-Bold.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'MonaSansBold';
+  src: url('/MonaSans-ExtraBold.ttf') format('opentype');
+}
