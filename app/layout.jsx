@@ -11,13 +11,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#050505" />
-        <meta name="title" content="Priyanshu G." />
-        <meta name="description" content="Somthing they don't know" />
-        <meta name="keywords" content="Portfolio" />
-       </Head>
         <div className="relative min-h-screen w-full">
           <div className="absolute inset-0 z-0">
             <Aurora 
