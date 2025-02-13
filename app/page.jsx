@@ -10,6 +10,13 @@ import Fade from "@/components/effects/Fade";
 export default function Page() {
   return (
     <main className="min-h-screen">
+       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#050505" />
+        <meta name="title" content="Priyanshu G." />
+        <meta name="description" content="Somthing they don't know" />
+        <meta name="keywords" content="Portfolio" />
+       </Head>
      <section className="h-screen flex items-center justify-center">
       <div className="text-center text-white font-ranade">
       <SplitText text="PRIYANSHU GUPTA" className="text-xl font-bold font-monaBold mb-4" />
