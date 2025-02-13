@@ -19,7 +19,7 @@ export default function Page() {
        </Head>
      <section className="h-screen flex items-center justify-center">
       <div className="text-center text-white font-ranade">
-      <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
+      <SplitText text="PRIYANSHU GUPTA" className="text-3xl font-bold font-monaBold mb-4" />
    <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
    <TextPressure text="Web Developer & Designer" minFontSize={15} textColor="#ffffff" />
   </Fade>
