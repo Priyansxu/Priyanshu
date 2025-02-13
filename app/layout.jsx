@@ -14,10 +14,9 @@ export default function RootLayout({ children }) {
        <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#050505" />
-        <meta name="title" content="Vexel" />
-        <meta name="description" content="AI-powered Discord bot that generates images analyzes visuals and engages in smart conversations." />
-        <meta name="keywords" content="Discord bot, AI" />
-        <meta property="og:image" content="/logo.png" />
+        <meta name="title" content="Priyanshu G." />
+        <meta name="description" content="Somthing they don't know" />
+        <meta name="keywords" content="Portfolio" />
        </Head>
         <div className="relative min-h-screen w-full">
           <div className="absolute inset-0 z-0">
