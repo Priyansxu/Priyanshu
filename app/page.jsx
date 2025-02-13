@@ -4,7 +4,7 @@ import Head from "next/head";
 import Aurora from "@/components/Aurora"
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
-import Fade from "@components/effects/Fade";
+import Fade from "@/components/effects/Fade";
 
 
 export default function Page() {
