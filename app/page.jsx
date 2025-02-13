@@ -19,12 +19,12 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
-    <div className="translate-y-6 ">
+    <div className="-translate-y-6 ">
       <Image
           src="/icon.png"
           alt="Icon"
-          width={300}
-          height={300}
+          width={200}
+          height={200}
           priority
         />
      </div>
