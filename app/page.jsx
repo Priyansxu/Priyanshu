@@ -19,6 +19,13 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
        </Head>
      <section className="h-screen flex items-center justify-center">
+    <Image
+        src="/icon.png"
+        alt="Icon"
+        width={300}
+        height={300}
+        priority
+      />
     <SplashCursor />
       <div className="text-center text-white font-ranade">
       <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
