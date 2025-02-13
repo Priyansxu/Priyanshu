@@ -19,13 +19,15 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
-        <Image
+    <div className="translate-y-6 ">
+      <Image
           src="/icon.png"
           alt="Icon"
-          width={100}
-          height={100}
+          width={300}
+          height={300}
           priority
         />
+     </div>
         <SplashCursor />
         <div className="text-center text-white font-ranade">
           <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
