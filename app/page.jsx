@@ -5,8 +5,6 @@ import Aurora from "@/components/Aurora"
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
 import Fade from "@/components/effects/Fade";
-import SplashCursor from "@/components/effects/SplashCursor";
-
 
 
 export default function Page() {
@@ -20,7 +18,6 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
        </Head>
      <section className="h-screen flex items-center justify-center">
-     <SplashCursor />
       <div className="text-center text-white font-ranade">
       <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
    <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
