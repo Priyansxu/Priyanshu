@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 import Aurora from "@/components/Aurora"
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
