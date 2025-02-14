@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="relative min-h-screen w-full bg-black">
-          <div className="absolute opacity-60 inset-0 z-0">
+          <div className="absolute opacity-40 inset-0 z-0">
             <LiquidChrome />
           </div>
           <div className="relative z-10">
