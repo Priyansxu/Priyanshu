@@ -2,6 +2,7 @@ import './globals.css';
 import Head from "next/head";
 import Aurora from "@/components/Aurora"
 import LiquidChrome from "@/components/LiquidChrome";
+import CrossHair from "@/components/CrossHair";
 
 export const metadata = {
   title: 'Priyanshu G.',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="relative min-h-screen w-full bg-black">
+         <CrossHair />
           <div className="absolute opacity-40 inset-0 z-0">
             <LiquidChrome />
           </div>
