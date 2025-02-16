@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
-import Cursor from "@/components/effects/Cursor";
 import Fade from "@/components/effects/Fade";
 
 export default function Page() {
@@ -18,7 +17,6 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
-        <Cursor />
     <div className="-translate-y-6 ">
       <Image
           src="/icon.png"
