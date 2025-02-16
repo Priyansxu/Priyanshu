@@ -5,14 +5,14 @@ import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
 const Cursor = ({
   colors = ['#FFFFFF'],
-  baseSpring = 0.3,
-  baseFriction = 1,
-  baseThickness = 30,
+  baseSpring = 0.03,
+  baseFriction = 0.9,
+  baseThickness = 50,
   offsetFactor = 0.05,
   maxAge = 500,
   pointCount = 50,
   speedMultiplier = 0.6,
-  enableFade = false,
+  enableFade = true,
   enableShaderEffect = false,
   effectAmplitude = 2,
   backgroundColor = [0, 0, 0, 0],
