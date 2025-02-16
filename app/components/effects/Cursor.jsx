@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
 const Cursor = ({
-  colors = ['#FC8EAC'],
-  baseSpring = 0.03,
-  baseFriction = 0.9,
+  colors = ['#FFFFFF'],
+  baseSpring = 0.3,
+  baseFriction = 1,
   baseThickness = 30,
   offsetFactor = 0.05,
   maxAge = 500,
