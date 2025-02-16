@@ -29,7 +29,7 @@ export default function Page() {
         <div className="text-center text-white font-ranade">
           <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-            <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#dcdcdc" />
+            <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
         </div>
       </section>
