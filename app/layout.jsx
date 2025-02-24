@@ -1,6 +1,7 @@
 import './globals.css';
 import Head from "next/head";
 import LiquidChrome from "@/components/LiquidChrome";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: 'Priyanshu G.',
@@ -15,7 +16,8 @@ export default function RootLayout({ children }) {
           <div className="absolute opacity-20 inset-0 z-0">
             <LiquidChrome />
           </div>
-          <div className="relative z-10">
+         <div className="relative z-10">
+          <Header />
             {children}
           </div>
         </div>
