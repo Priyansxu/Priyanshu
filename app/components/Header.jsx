@@ -3,7 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
-      <nav className="backdrop-blur-md bg-gray-800/30 rounded-3xl px-6 py-4 flex justify-between items-center">
+      <nav className="backdrop-blur-md bg-black/20 rounded-3xl px-6 py-4 flex justify-between items-center">
         <span className="text-xl font-bold text-white">PG</span>
         <ul className="flex space-x-6">
           <li>
