@@ -16,8 +16,8 @@ export default function Page() {
         <meta name="description" content="They don't know me son." />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
-        <div className="text-center text-white font-ranade">
-          <SplitText text="Priyanshu Gupta" className="text-3xl font-bold font-moonet mb-4 mt-8" />
+        <div className="text-center text-white">
+          <SplitText text="Priyanshu Gupta" className="text-3xl font-bold font-necosmic mb-4 mt-8" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
             <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
