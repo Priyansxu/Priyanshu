@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: {
         ranade: ['RanadeBold', 'sans-serif'],
         monaBold: ['MonaSansBold', 'sans-serif'],
+        necosmic: ['Necosmic', 'sans-serif'],
         moonet: ['Moonet', 'sans-serif'],
       },
     },
