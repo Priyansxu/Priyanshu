@@ -13,8 +13,7 @@ export default function Page() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#050505" />
         <meta name="title" content="Priyanshu G." />
-        <meta name="description" content="Somthing they don't know" />
-        <meta name="keywords" content="Portfolio" />
+        <meta name="description" content="They don't know me son." />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white font-ranade">
