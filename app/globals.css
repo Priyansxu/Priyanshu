@@ -11,3 +11,8 @@
   font-family: 'MonaSansBold';
   src: url('/MonaSans-ExtraBold.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Necosmic';
+  src: url('/Necosmic.otf') format('opentype');
+}
