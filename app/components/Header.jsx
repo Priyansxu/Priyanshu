@@ -7,17 +7,17 @@ export default function Header() {
        <img src="/icon.svg" alt="icon" className="h-8" />
         <ul className="flex space-x-6">
           <li>
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#about" className="text-gray-300 text-sm hover:text-white transition-colors">
               About
             </a>
           </li>
           <li>
-            <a href="#work" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#work" className="text-gray-300 text-sm hover:text-white transition-colors">
               Work
             </a>
           </li>
           <li>
-            <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#contact" className="text-gray-300 text-sm hover:text-white transition-colors">
               Contact
             </a>
           </li>
