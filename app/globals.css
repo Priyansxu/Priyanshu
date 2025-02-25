@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'Necosmic';
+  src: url('/fonts/Necosmic.otf') format('opentype');
+}
+
+@font-face {
   font-family: 'Moonet';
   src: url('/fonts/Moonet.otf') format('opentype');
 }
