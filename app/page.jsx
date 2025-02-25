@@ -19,7 +19,7 @@ export default function Page() {
         <div className="text-center text-white font-ranade">
           <SplitText text="Priyanshu Gupta" className="text-3xl font-bold font-monaBold mb-4 mt-8" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-            <TextPressure text="Web Developer & Designer" minFontSize={18} textColor="#d3d3d3" />
+            <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
         </div>
       </section>
