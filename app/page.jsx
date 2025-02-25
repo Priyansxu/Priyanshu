@@ -17,17 +17,8 @@ export default function Page() {
         <meta name="keywords" content="Portfolio" />
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
-    <div className="-translate-y-6 ">
-      <Image
-          src="/icon.png"
-          alt="Icon"
-          width={200}
-          height={200}
-          priority
-        />
-     </div>
         <div className="text-center text-white font-ranade">
-          <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4" />
+          <SplitText text="PRIYANSHU GUPTA" className="text-2xl font-bold font-monaBold mb-4 mt-8" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
             <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
