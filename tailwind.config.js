@@ -10,6 +10,7 @@ module.exports = {
         monaBold: ['MonaSansBold', 'sans-serif'],
         necosmic: ['Necosmic', 'sans-serif'],
         moonet: ['Moonet', 'sans-serif'],
+        kubo: ['Kubo', 'sans-serif'],
       },
     },
   },
