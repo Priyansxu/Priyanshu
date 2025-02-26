@@ -12,12 +12,12 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="#work" className="text-gray-300 text-sm hover:text-white transition-colors">
+            <a href="#skills" className="text-gray-300 text-sm hover:text-white transition-colors">
               Skills
             </a>
           </li>
           <li>
-            <a href="#contact" className="text-gray-300 text-sm hover:text-white transition-colors">
+            <a href="#social" className="text-gray-300 text-sm hover:text-white transition-colors">
               Social
             </a>
           </li>
