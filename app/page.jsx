@@ -23,6 +23,43 @@ export default function Page() {
           </Fade>
         </div>
       </section>
+      <section id="about" className="py-16 px-4 md:px-8 lg:px-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">About</h2>
+        <p className="max-w-2xl mx-auto text-center text-lg">
+          I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
+          functional websites. With expertise in modern web technologies, I bring ideas to life through clean code and
+          stunning visuals.
+        </p>
+      </section>
+
+      <section id="skills" className="py-16 px-4 md:px-8 lg:px-16 bg-white text-black">
+        <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
+        <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+          {["Python", "JavaScript", "React", "Next.js", "Tailwind CSS", "UI/UX Design"].map(
+            (skill) => (
+              <div key={skill} className="bg-black text-white px-4 py-2 rounded-full text-sm">
+                {skill}
+              </div>
+            ),
+          )}
+        </div>
+      </section>
+
+      <section id="social" className="py-16 px-4 md:px-8 lg:px-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">Social</h2>
+        <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+          {[
+            { name: "Twitter", username: "@priyansxu_gupta" },
+            { name: "Instagram", username: "@priyansxu_gupta" },
+            { name: "Telegram", username: "@priyansxu_gupta" },
+            { name: "Pinterest", username: "@priyansxu_gupta" },
+          ].map((social) => (
+            <div key={social.name} className="bg-white text-black px-4 py-2 rounded-lg text-sm">
+              <span className="font-bold">{social.name}:</span> {social.username}
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
