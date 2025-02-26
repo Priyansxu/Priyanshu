@@ -17,7 +17,7 @@ export default function Page() {
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white">
-          <SplitText text="Priyanshu Gupta" className="text-[1.75rem] md:text-4xl lg:text-5xl font-bold font-necosmic mb-4 mt-8" />
+          <SplitText text="Priyanshu Gupta" className="text-[1.60rem] md:text-4xl lg:text-5xl font-bold font-necosmic mb-4 mt-8" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
             <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
@@ -46,7 +46,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="social" className="mt-64 px-4 md:px-8 lg:px-16 mb-16">
+      <section id="social" className="mx-64 px-4 md:px-8 lg:px-16">
         <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
