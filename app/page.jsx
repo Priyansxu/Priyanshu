@@ -46,8 +46,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="social" className="py-32 px-4 md:px-8 lg:px-16 text-white">
-        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">Social</h2>
+      <section id="social" className="py-32 px-4 md:px-8 lg:px-16 mb-16">
+        <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
             { name: "Twitter", username: "@priyansxu_gupta" },
