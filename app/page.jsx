@@ -25,7 +25,7 @@ export default function Page() {
       </section>
 
       <section id="about" className="py-32 px-6 md:px-8 lg:px-16 text-white">
-        <h2 className="text-3xl font-bold mb-8 text-center">About</h2>
+        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">About</h2>
         <p className="max-w-2xl mx-auto text-center text-lg font-medium">
           I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
           functional websites. With expertise in modern web technologies, I bring ideas to life through clean code and
@@ -34,7 +34,7 @@ export default function Page() {
       </section>
 
       <section id="skills" className="py-32 px-4 md:px-8 lg:px-16 text-white">
-        <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
+        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">Skills</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
           {["Python", "JavaScript", "React", "Next.js", "Tailwind CSS", "UI/UX Design"].map(
             (skill) => (
@@ -47,7 +47,7 @@ export default function Page() {
       </section>
 
       <section id="social" className="py-32 px-4 md:px-8 lg:px-16 text-white">
-        <h2 className="text-3xl font-bold mb-8 text-center">Social</h2>
+        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
             { name: "Twitter", username: "@priyansxu_gupta" },
