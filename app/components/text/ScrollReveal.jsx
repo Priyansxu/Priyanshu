@@ -100,7 +100,7 @@ const ScrollReveal = ({
 
   return (
     <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] max-w-2xl mx-auto text-md font-medium font-ranadeMd ${textClassName}`}>{splitText}</p>
+      <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] max-w-2xl mx-auto text-sm text-white/40 font-ranadeMd ${textClassName}`}>{splitText}</p>
     </h2>
   );
 };
