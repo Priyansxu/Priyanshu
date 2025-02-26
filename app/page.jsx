@@ -25,14 +25,14 @@ export default function Page() {
       </section>
       <section id="about" className="py-16 px-4 md:px-8 lg:px-16 text-white">
         <h2 className="text-3xl font-bold mb-8 text-center">About</h2>
-        <p className="max-w-2xl mx-auto text-center text-lg">
+        <p className="max-w-2xl mx-auto text-center text-lg font-medium">
           I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
           functional websites. With expertise in modern web technologies, I bring ideas to life through clean code and
           stunning visuals.
         </p>
       </section>
 
-      <section id="skills" className="py-16 px-4 md:px-8 lg:px-16 text-white">
+      <section id="skills" className="h-screen py-16 px-4 md:px-8 lg:px-16 text-white">
         <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
           {["Python", "JavaScript", "React", "Next.js", "Tailwind CSS", "UI/UX Design"].map(
@@ -45,7 +45,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="social" className="py-16 px-4 md:px-8 lg:px-16 text-white">
+      <section id="social" className="h-screen py-16 px-4 md:px-8 lg:px-16 text-white">
         <h2 className="text-3xl font-bold mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
