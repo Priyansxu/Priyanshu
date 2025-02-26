@@ -11,3 +11,8 @@
   font-family: 'Moonet';
   src: url('/fonts/Moonet.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Kubo';
+  src: url('/fonts/kubo.otf') format('opentype');
+}
