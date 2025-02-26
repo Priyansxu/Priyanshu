@@ -13,12 +13,12 @@ export default function Header() {
           </li>
           <li>
             <a href="#work" className="text-gray-300 text-sm hover:text-white transition-colors">
-              Work
+              Skills
             </a>
           </li>
           <li>
             <a href="#contact" className="text-gray-300 text-sm hover:text-white transition-colors">
-              Contact
+              Social
             </a>
           </li>
         </ul>
