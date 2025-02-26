@@ -31,7 +31,7 @@ export default function Page() {
           I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
           functional websites. With expertise in modern web technologies, I bring ideas to life through clean code and
           stunning visuals.
-        </p
+        </p>
       </section>
 
       <section id="skills" className="mt-64 px-4 md:px-8 lg:px-16 text-white">
