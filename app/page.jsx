@@ -46,7 +46,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="social" className="mt-64 px-4 md:px-8 lg:px-16 mb-32">
+      <section id="social" className="mt-64 px-4 md:px-8 lg:px-16 pb-32">
         <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
