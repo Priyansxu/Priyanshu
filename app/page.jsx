@@ -25,7 +25,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="about" className="pt-16 pb-32 px-6 md:px-8 lg:px-16 text-white">
+      <section id="about" className="py-32 px-6 md:px-8 lg:px-16 text-white">
         <h2 className="text-3xl font-bold font-kubo mb-8 text-center">About</h2>
         <p className="max-w-2xl mx-auto text-md text-white/80 text-center font-ranadeMd">
           I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
