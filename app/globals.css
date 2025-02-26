@@ -16,3 +16,9 @@
   font-family: 'Kubo';
   src: url('/fonts/kubo.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'RanadeMd';
+  src: url('/fonts/Ranade-Regular.otf') format('opentype');
+}
+
