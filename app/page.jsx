@@ -17,7 +17,7 @@ export default function Page() {
       </Head>
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white">
-          <SplitText text="Priyanshu Gupta" className="text-2xl md:text-3xl lg:text-3xl font-bold font-necosmic mb-4 mt-8" />
+          <SplitText text="Priyanshu Gupta" className="text-3xl md:text-4xl lg:text-5xl font-bold font-necosmic mb-4 mt-8" />
           <Fade blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
             <TextPressure text="Web Developer & Designer" minFontSize={20} textColor="#d3d3d3" />
           </Fade>
@@ -25,7 +25,7 @@ export default function Page() {
       </section>
 
       <section id="about" className="py-32 px-6 md:px-8 lg:px-16 text-white">
-        <h2 className="text-2xl font-bold font-kubo mb-8 text-center">About</h2>
+        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">About</h2>
         <p className="max-w-2xl mx-auto text-center text-lg font-medium">
           I'm a passionate web developer and designer with a keen eye for detail and a love for creating beautiful,
           functional websites. With expertise in modern web technologies, I bring ideas to life through clean code and
@@ -34,7 +34,7 @@ export default function Page() {
       </section>
 
       <section id="skills" className="py-32 px-4 md:px-8 lg:px-16 text-white">
-        <h2 className="text-2xl font-bold font-kubo mb-8 text-center">Skills</h2>
+        <h2 className="text-3xl font-bold font-kubo mb-8 text-center">Skills</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
           {["Python", "JavaScript", "React", "Next.js", "Tailwind CSS", "UI/UX Design"].map(
             (skill) => (
@@ -47,7 +47,7 @@ export default function Page() {
       </section>
 
       <section id="social" className="py-32 px-4 md:px-8 lg:px-16 mb-16">
-        <h2 className="text-2xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
+        <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
         <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           {[
             { name: "Twitter", username: "@priyansxu_gupta" },
