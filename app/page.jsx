@@ -39,7 +39,7 @@ export default function Page() {
         <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
           {["Python", "JavaScript", "React", "Next.js", "Tailwind CSS", "UI/UX Design"].map(
             (skill) => (
-              <div key={skill} className="px-4 py-2 rounded-full text-sm border border-[#353535] text-[#CECECE] bg-gradient-br from-[#7B7B7B] to-[#242525] shadow-inner">
+              <div key={skill} className="px-4 py-2 rounded-full text-sm border border-[#353535] text-[#CECECE] bg-gradient-br from-[#7B7B7B] to-[#242525]">
                 {skill}
               </div>
             ),
