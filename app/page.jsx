@@ -50,22 +50,16 @@ export default function Page() {
 
       <section id="social" className="py-32 px-4 md:px-8 lg:px-16 pb-16">
         <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
-        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {[
-            { icon: Twitter, username: "@priyansxu_gupta", color: "#1DA1F2" },
-            { icon: Instagram, username: "@priyansxu_gupta", color: "#E1306C" },
-            { icon: Send, username: "@priyansxu_gupta", color: "#0088cc" },
-            { icon: Linkedin, username: "@priyansxu_gupta", color: "#E60023" },
+            { icon: Twitter, username: "@priyansxu_gupta" },
+            { icon: Instagram, username: "@priyansxu_gupta" },
+            { icon: Send, username: "@priyansxu_gupta" },
+            { icon: Linkedin, username: "@priyansxu_gupta" },
           ].map((social, index) => (
-            <div 
-              key={index} 
-              className="flex items-center gap-3 px-5 py-3 bg-[#151515] border border-[#252525] text-white hover:bg-[#181818] transition-all duration-300"
-              style={{ 
-                boxShadow: `inset 0 0 20px rgba(${index === 0 ? '29, 161, 242' : index === 1 ? '225, 48, 108' : index === 2 ? '0, 136, 204' : '230, 0, 35'}, 0.1)` 
-              }}
-            >
-              <social.icon size={20} color={social.color} />
-              <span className="text-gray-300 font-medium">{social.username}</span>
+            <div key={index} className="bg-[#111111] border border-[#353535] text-[#7A7A7A] px-4 py-2 rounded-lg text-sm flex items-center space-x-2 shadow-inner">
+              <social.icon size={18} className="text-[#7A7A7A]" />
+              <span>{social.username}</span>
             </div>
           ))}
         </div>
