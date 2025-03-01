@@ -6,7 +6,7 @@ import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
 import ScrollReveal from "@/components/text/ScrollReveal";
 import Fade from "@/components/effects/Fade";
-import { Twitter, Instagram, Send, Pinterest } from "lucide-react";
+import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
 
 export default function Page() {
   return (
@@ -55,7 +55,7 @@ export default function Page() {
             { icon: Twitter, username: "@priyansxu_gupta", color: "#1DA1F2" },
             { icon: Instagram, username: "@priyansxu_gupta", color: "#E1306C" },
             { icon: Send, username: "@priyansxu_gupta", color: "#0088cc" },
-            { icon: Pinterest, username: "@priyansxu_gupta", color: "#E60023" },
+            { icon: Linkedin, username: "@priyansxu_gupta", color: "#E60023" },
           ].map((social, index) => (
             <div 
               key={index} 
