@@ -6,6 +6,7 @@ import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
 import ScrollReveal from "@/components/text/ScrollReveal";
 import Fade from "@/components/effects/Fade";
+import { Twitter, Instagram, Send, Pinterest } from "lucide-react";
 
 export default function Page() {
   return (
@@ -49,15 +50,22 @@ export default function Page() {
 
       <section id="social" className="py-32 px-4 md:px-8 lg:px-16 pb-16">
         <h2 className="text-3xl text-white font-bold font-kubo mb-8 text-center">Social</h2>
-        <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
           {[
-            { name: "Twitter", username: "@priyansxu_gupta" },
-            { name: "Instagram", username: "@priyansxu_gupta" },
-            { name: "Telegram", username: "@priyansxu_gupta" },
-            { name: "Pinterest", username: "@priyansxu_gupta" },
-          ].map((social) => (
-            <div key={social.name} className="bg-white text-black px-4 py-2 rounded-lg text-sm">
-              <span className="font-bold">{social.name}:</span> {social.username}
+            { icon: Twitter, username: "@priyansxu_gupta", color: "#1DA1F2" },
+            { icon: Instagram, username: "@priyansxu_gupta", color: "#E1306C" },
+            { icon: Send, username: "@priyansxu_gupta", color: "#0088cc" },
+            { icon: Pinterest, username: "@priyansxu_gupta", color: "#E60023" },
+          ].map((social, index) => (
+            <div 
+              key={index} 
+              className="flex items-center gap-3 px-5 py-3 bg-[#151515] border border-[#252525] text-white hover:bg-[#181818] transition-all duration-300"
+              style={{ 
+                boxShadow: `inset 0 0 20px rgba(${index === 0 ? '29, 161, 242' : index === 1 ? '225, 48, 108' : index === 2 ? '0, 136, 204' : '230, 0, 35'}, 0.1)` 
+              }}
+            >
+              <social.icon size={20} color={social.color} />
+              <span className="text-gray-300 font-medium">{social.username}</span>
             </div>
           ))}
         </div>
