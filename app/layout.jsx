@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 export const metadata = {
   title: 'Priyanshu G.',
   description: '',
+  themeColor: "#080808",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
