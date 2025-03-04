@@ -6,9 +6,9 @@ import Header from "@/components/Header";
 export const metadata = {
   title: 'Priyanshu G.',
   description: '',
-  themeColor: "#080808",
+  themeColor: "#050505",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.svg",
   },
 };
 
