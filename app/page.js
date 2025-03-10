@@ -15,6 +15,7 @@ export default function Page() {
         <meta name="description" content="They don't know me son." />
         <meta name="keywords" content="Priyanshu Gupta, priyansxu, developer, programmer, designer, portfolio" />
         <meta name="theme-color" content="#080808" />
+        <meta name="google-site-verification" content="XLqLixkX6aVHp3o1Kj8s8UH_eAqXB6DLQyq0-CrDmRI" />
         <link rel="icon" href="/icon.svg" />
       </Head>
 
