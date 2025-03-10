@@ -12,7 +12,7 @@ export default function Page() {
      <>
       <Head>
         <title>Priyanshu Gupta</title>
-        <meta name="description" content="" />
+        <meta name="description" content="They don't know me son." />
         <meta name="keywords" content="Priyanshu Gupta, priyansxu, developer, programmer, designer, portfolio" />
         <meta name="theme-color" content="#080808" />
         <link rel="icon" href="/icon.svg" />
