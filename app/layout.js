@@ -9,7 +9,7 @@ export const metadata = {
   keywords: ['Priyanshu Gupta', 'priyansxu', 'developer', 'programmer', 'designer', 'portfolio'],
   themeColor: '#080808',
   icons: {
-    icon: '/icon.png',
+    icon: '/icon.svg',
   },
 };
 
