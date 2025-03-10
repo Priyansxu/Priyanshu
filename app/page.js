@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
-import ScrollReveal from "@/components/text/ScrollReveal";
 import Fade from "@/components/effects/Fade";
 import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
 
