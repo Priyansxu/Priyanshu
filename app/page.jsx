@@ -11,12 +11,17 @@ import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
 export default function Page() {
   return (
     <main className="min-h-screen">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#050505" />
-        <meta name="title" content="Priyanshu Gupta" />
-        <meta name="description" content="They don't know me son." />
-      </Head>
+
+export const metadata = {
+  title: 'Priyanshu Gupta',
+  description: '',
+  keywords: ['Priyanshu Gupta', 'priyansxu', 'developer', 'programmer', 'designer', 'portfolio'],
+  themeColor: '#080808',
+  icons: {
+    icon: '/icon.svg',
+  },
+};
+
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white">
           <SplitText text="Priyanshu Gupta" className="text-[1.55rem] md:text-4xl lg:text-5xl font-bold font-necosmic mb-4 mt-8" />
