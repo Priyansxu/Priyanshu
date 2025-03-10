@@ -9,6 +9,15 @@ import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
 
 export default function Page() {
   return (
+     <>
+      <Head>
+        <title>Priyanshu Gupta</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="Priyanshu Gupta, priyansxu, developer, programmer, designer, portfolio" />
+        <meta name="theme-color" content="#080808" />
+        <link rel="icon" href="/icon.svg" />
+      </Head>
+
     <main className="min-h-screen">
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white">
@@ -58,5 +67,6 @@ export default function Page() {
         </div>
       </section>
     </main>
+  </>
   );
     }
