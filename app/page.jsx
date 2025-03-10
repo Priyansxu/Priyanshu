@@ -8,9 +8,6 @@ import ScrollReveal from "@/components/text/ScrollReveal";
 import Fade from "@/components/effects/Fade";
 import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
 
-export default function Page() {
-  return (
-    <main className="min-h-screen">
 
 export const metadata = {
   title: 'Priyanshu Gupta',
@@ -22,6 +19,9 @@ export const metadata = {
   },
 };
 
+export default function Page() {
+  return (
+    <main className="min-h-screen">
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-center text-white">
           <SplitText text="Priyanshu Gupta" className="text-[1.55rem] md:text-4xl lg:text-5xl font-bold font-necosmic mb-4 mt-8" />
