@@ -5,8 +5,8 @@ export default function manifest() {
     description: 'They dont know me son.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#080808',
-    theme_color: '#080808',
+    background_color: '#000000',
+    theme_color: '#000000',
     icons: [
       {
         src: '/icon.png',
