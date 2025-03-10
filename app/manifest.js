@@ -2,7 +2,7 @@ export default function manifest() {
   return {
     name: 'Priyanshu Gupta',
     short_name: 'Priyanshu Gupta',
-    description: 'They don't know me son.',
+    description: 'They dont know me son.',
     start_url: '/',
     display: 'standalone',
     background_color: '#080808',
