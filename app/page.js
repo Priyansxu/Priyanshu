@@ -1,19 +1,11 @@
+"use client";
+
 import Head from "next/head";
 import Image from "next/image";
 import SplitText from "@/components/text/SplitText";
 import TextPressure from "@/components/text/TextPressure";
 import Fade from "@/components/effects/Fade";
 import { Twitter, Instagram, Send, Linkedin } from "lucide-react";
-
-export const metadata = {
-  title: 'Priyanshu Gupta',
-  description: '',
-  keywords: ['Priyanshu Gupta', 'priyansxu', 'developer', 'programmer', 'designer', 'portfolio'],
-  themeColor: '#080808',
-  icons: {
-    icon: '/icon.svg',
-  },
-};
 
 export default function Page() {
   return (
