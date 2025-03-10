@@ -4,7 +4,7 @@ import LiquidChrome from "@/components/LiquidChrome";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: 'Priyanshu G.',
+  title: 'Priyanshu Gupta',
   description: '',
   themeColor: "#050505",
   icons: {
