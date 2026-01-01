@@ -100,7 +100,7 @@ export default function Page() {
           </div>
 
           <div className="space-y-8">
-            <p className="text-[22px] leading-[1.4] text-muted-foreground font-medium tracking-tight">
+            <p className="text-[18px] leading-[1.4] text-muted-foreground font-medium tracking-tight">
               {current.text}
             </p>
 
