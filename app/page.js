@@ -1,47 +1,71 @@
 "use client"
 
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const pages = [
   {
     id: "01",
+    title: "Priyanshu Gupta",
+    subtitle: "Developer & Designer",
     text: (
       <>
-        Priyanshu Gupta, born in 2007. A passionate and curious individual with a
-        keen interest in programming, graphics designing, psychology, and space
-        exploration. Instagram{" "}
-        <a
-          href="#"
-          className="underline underline-offset-8 decoration-1 text-foreground hover:opacity-70 transition-opacity"
-        >
-          @priyansxu_gupta
-        </a>
+        Born in 2007. A passionate individual crafting{" "}
+        <span className="text-foreground italic font-serif">
+          polished interfaces
+        </span>{" "}
+        and exploring the intersection of programming, psychology, and space.
       </>
     ),
-    button: "E-mail me",
+    links: [
+      {
+        label: "Github",
+        icon: <Github className="w-4 h-4" />,
+        href: "https://github.com",
+      },
+      {
+        label: "Instagram",
+        icon: <Instagram className="w-4 h-4" />,
+        href: "https://instagram.com/priyansxu_gupta",
+      },
+    ],
+    button: "Get in touch",
+    action: "email",
   },
   {
     id: "02",
+    title: "The Craft",
+    subtitle: "Focus & Philosophy",
     text: (
       <>
-        Focused on building clean interfaces, learning modern web technologies,
-        and experimenting with design systems, animations, and performance-driven
-        development.
+        Obsessed with{" "}
+        <span className="text-foreground italic font-serif">
+          clean code
+        </span>{" "}
+        and performance-driven development. Experimenting with design systems,
+        complex animations, and modern web architectures.
       </>
     ),
-    button: "View work",
+    button: "View my work",
+    action: "projects",
   },
   {
     id: "03",
+    title: "Beyond Code",
+    subtitle: "Ideas & Explorations",
     text: (
       <>
-        Exploring ideas beyond code — psychology, space, philosophy, and how
-        humans interact with technology. Always learning, always questioning.
+        Exploring how humans interact with technology. Questioning the{" "}
+        <span className="text-foreground italic font-serif">
+          future of interfaces
+        </span>
+        , philosophy, and the infinite scale of space.
       </>
     ),
-    button: "Let’s connect",
+    button: "Let's connect",
+    action: "social",
   },
 ]
 
@@ -59,81 +83,155 @@ export default function Page() {
   const current = pages[page]
 
   return (
-    <main className="min-h-screen flex flex-col bg-background text-foreground p-6 md:p-12 max-w-2xl mx-auto font-mono transition-colors duration-300">
-      <header className="flex items-center justify-between mb-20">
-        <div className="flex items-center gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">Priyanshu</h1>
-          <span className="px-2 py-0.5 bg-muted text-[10px] font-bold uppercase tracking-widest rounded-full text-muted-foreground border border-border">
-            dev
-          </span>
-        </div>
+    <main className="min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[100px]" />
+      </div>
 
-        <div
-          className="flex items-center gap-1 bg-card border border-border rounded-full p-1 shadow-sm cursor-pointer select-none"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
+      <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
+        <header className="flex items-center justify-between mb-24 md:mb-32">
+          <div className="group cursor-crosshair">
+            <h1 className="text-xl font-medium tracking-tight flex items-center gap-3">
+              Priyanshu
+              <span className="text-[10px] px-2 py-0.5 rounded-full border border-border bg-muted/50 text-muted-foreground uppercase tracking-[0.2em] font-bold">
+                Dev
+              </span>
+            </h1>
+          </div>
+
           <div
-            className={`p-1.5 rounded-full transition-all ${
-              theme === "dark"
-                ? "bg-accent shadow-inner text-foreground"
-                : "bg-transparent text-muted-foreground"
-            }`}
+            className="flex items-center gap-1 bg-card border border-border rounded-full p-1 shadow-sm cursor-pointer select-none"
+            onClick={() =>
+              setTheme(theme === "dark" ? "light" : "dark")
+            }
           >
-            <Moon className="w-3.5 h-3.5" />
-          </div>
-          <div
-            className={`p-1.5 rounded-full transition-all ${
-              theme === "light"
-                ? "bg-accent shadow-inner text-foreground"
-                : "bg-transparent text-muted-foreground"
-            }`}
-          >
-            <Sun className="w-3.5 h-3.5" />
-          </div>
-        </div>
-      </header>
+            <div
+              className={`p-1.5 rounded-full transition-all ${
+                theme === "dark"
+                  ? "bg-accent shadow-inner text-foreground"
+                  : "bg-transparent text-muted-foreground"
+              }`}
+            >
+              <Moon className="w-3.5 h-3.5" />
+            </div>
 
-      <section className="flex-1 flex flex-col justify-center">
-        <div className="space-y-8 w-full">
-          <div className="text-[140px] font-black leading-none tracking-tighter select-none">
-            {current.id}
+            <div
+              className={`p-1.5 rounded-full transition-all ${
+                theme === "light"
+                  ? "bg-accent shadow-inner text-foreground"
+                  : "bg-transparent text-muted-foreground"
+              }`}
+            >
+              <Sun className="w-3.5 h-3.5" />
+            </div>
           </div>
+        </header>
 
-          <div className="space-y-8">
-            <p className="text-[18px] leading-[1.4] text-muted-foreground font-medium tracking-tight">
-              {current.text}
-            </p>
+        <section className="flex-1 flex flex-col justify-center max-w-2xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={page}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{
+                duration: 0.5,
+                ease: [0.19, 1, 0.22, 1],
+              }}
+              className="space-y-10"
+            >
+              <div className="space-y-3">
+                <motion.span
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 0.6, x: 0 }}
+                  className="text-primary font-mono text-xs tracking-[0.3em] uppercase block"
+                >
+                  {current.id} — {current.subtitle}
+                </motion.span>
 
-            <button className="w-full bg-primary text-primary-foreground py-5 rounded-2xl font-bold text-lg tracking-tight hover:opacity-90 transition-all active:scale-[0.98]">
-              {current.button}
+                <h2 className="text-5xl md:text-8xl font-bold tracking-tight text-pretty">
+                  {current.title}
+                </h2>
+              </div>
+
+              <div className="space-y-12">
+                <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl text-balance">
+                  {current.text}
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+                  <button className="group relative flex items-center gap-4 bg-foreground text-background px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-foreground/5">
+                    {current.button}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+
+                  {current.links && (
+                    <div className="flex items-center gap-6 py-4">
+                      {current.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-110"
+                          aria-label={link.label}
+                        >
+                          {link.icon}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </section>
+
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-border pt-12">
+          <div className="flex items-center gap-10">
+            <button
+              onClick={() => setPage((p) => Math.max(p - 1, 0))}
+              disabled={page === 0}
+              className="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground disabled:opacity-0 disabled:pointer-events-none transition-all duration-200 group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back
             </button>
+
+            <div className="hidden md:flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
+              <span>Progress</span>
+              <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
+                <motion.div
+                  className="absolute inset-y-0 left-0 bg-primary origin-left"
+                  initial={false}
+                  animate={{
+                    scaleX: (page + 1) / pages.length,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.19, 1, 0.22, 1],
+                  }}
+                />
+              </div>
+              <span className="text-foreground">
+                0{page + 1} / 03
+              </span>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <footer className="flex items-center justify-between pt-12">
-        <button
-          onClick={() => setPage((p) => Math.max(p - 1, 0))}
-          disabled={page === 0}
-          className="px-10 py-4 bg-secondary text-muted-foreground rounded-full font-bold text-sm hover:bg-secondary/80 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Back
-        </button>
-
-        <div className="flex items-center gap-2 text-sm font-bold">
-          <span className="text-foreground">{page + 1}</span>
-          <span className="text-muted font-light">/</span>
-          <span className="text-muted-foreground font-medium">3</span>
-        </div>
-
-        <button
-          onClick={() => setPage((p) => Math.min(p + 1, 2))}
-          disabled={page === 2}
-          className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-bold text-sm hover:opacity-90 transition-all active:scale-[0.95] disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Next
-        </button>
-      </footer>
+          <button
+            onClick={() =>
+              setPage((p) =>
+                Math.min(p + 1, pages.length - 1)
+              )
+            }
+            disabled={page === pages.length - 1}
+            className="group flex items-center gap-4 px-8 py-4 bg-muted border border-border rounded-full font-bold text-sm hover:bg-accent hover:border-foreground/20 transition-all active:scale-[0.95] disabled:opacity-0 disabled:pointer-events-none"
+          >
+            Next Step
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </footer>
+      </div>
     </main>
   )
 }
