@@ -9,21 +9,33 @@ const pages = [
   {
     id: "01",
     title: "Priyanshu Gupta",
-    subtitle: "Developer & Designer",
+    subtitle: "About Me",
     text: (
       <>
-        Born in 2007. A passionate individual crafting{" "}
+        Born in 2007. A{" "}
         <span className="text-foreground italic font-serif">
-          polished interfaces
+          curious and driven
         </span>{" "}
-        and exploring the intersection of programming, psychology, and space.
+        individual, always{" "}
+        <span className="text-foreground italic font-serif">
+          learning
+        </span>
+        ,{" "}
+        <span className="text-foreground italic font-serif">
+          experimenting
+        </span>
+        , and{" "}
+        <span className="text-foreground italic font-serif">
+          pushing boundaries
+        </span>{" "}
+        in everything I do.
       </>
     ),
     links: [
       {
         label: "Github",
         icon: <Github className="w-4 h-4" />,
-        href: "https://github.com",
+        href: "https://github.com/Priyansxu",
       },
       {
         label: "Instagram",
@@ -37,15 +49,22 @@ const pages = [
   {
     id: "02",
     title: "The Craft",
-    subtitle: "Focus & Philosophy",
+    subtitle: "Development & Design",
     text: (
       <>
-        Obsessed with{" "}
+        I work with Python and JavaScript, using{" "}
         <span className="text-foreground italic font-serif">
-          clean code
+          frameworks
         </span>{" "}
-        and performance-driven development. Experimenting with design systems,
-        complex animations, and modern web architectures.
+        to build modern web applications with a focus on{" "}
+        <span className="text-foreground italic font-serif">
+          UI/UX
+        </span>
+        . I also create{" "}
+        <span className="text-foreground italic font-serif">
+          graphics and visuals
+        </span>{" "}
+        that bring designs to life.
       </>
     ),
     button: "View my work",
@@ -57,17 +76,29 @@ const pages = [
     subtitle: "Ideas & Explorations",
     text: (
       <>
-        Exploring how humans interact with technology. Questioning the{" "}
+        Beyond development, I’m fascinated by{" "}
         <span className="text-foreground italic font-serif">
-          future of interfaces
+          psychology
+        </span>{" "}
+        and{" "}
+        <span className="text-foreground italic font-serif">
+          astronomy
         </span>
-        , philosophy, and the infinite scale of space.
+        —digging into how people think and the vastness of the universe to{" "}
+        <span className="text-foreground italic font-serif">
+          spark new ideas
+        </span>{" "}
+        and{" "}
+        <span className="text-foreground italic font-serif">
+          fuel my creativity
+        </span>
+        .
       </>
     ),
     button: "Let's connect",
     action: "social",
   },
-]
+];
 
 export default function Page() {
   const { theme, setTheme } = useTheme()
