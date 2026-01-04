@@ -96,37 +96,36 @@ return (
       <div className="group cursor-crosshair">  
         <h1 className="text-xl font-medium font-mono flex items-center gap-3">  
           Priyanshu  
-          <span className={`text-[10px] px-3 rounded-full tracking-[0.2em] font-bold ${isDark ? 'bg-zinc-900 text-muted-foreground' : 'border border-border bg-muted/50 text-muted-foreground'}`}>  
+          <span className={`text-sm font-bold inline-block rounded-3xl px-3 ${isDark ? 'bg-[#fafafa] text-black' : 'border border-border bg-muted/50 text-muted-foreground'}`}>  
             dev  
           </span>  
         </h1>  
       </div>  
 
       <div  
-        className={`flex items-center gap-1 rounded-full p-1 shadow-sm cursor-pointer select-none ${isDark ? 'bg-zinc-900' : 'bg-card border border-border'}`}  
-        onClick={() =>  
-          setTheme(theme === "dark" ? "light" : "dark")  
-        }  
+        className={`flex items-center p-1 px-2 rounded-full cursor-pointer select-none ${isDark ? 'bg-[#111] border border-zinc-800' : 'bg-card border border-border shadow-sm'}`}  
       >  
-        <div  
-          className={`p-1.5 rounded-full transition-all ${  
+        <button  
+          className={`mr-2 p-1.5 rounded-full transition-all ${  
             theme === "dark"  
-              ? "bg-accent shadow-inner text-foreground"  
-              : "bg-transparent text-muted-foreground"  
+              ? "bg-[#333] shadow-xl text-white"  
+              : "text-zinc-500"  
           }`}  
+          onClick={() => setTheme("dark")}  
         >  
           <Moon className="w-3.5 h-3.5" />  
-        </div>  
+        </button>  
 
-        <div  
+        <button  
           className={`p-1.5 rounded-full transition-all ${  
             theme === "light"  
-              ? "bg-accent shadow-inner text-foreground"  
-              : "bg-transparent text-muted-foreground"  
+              ? "bg-white shadow-xl text-zinc-700"  
+              : "text-zinc-500"  
           }`}  
+          onClick={() => setTheme("light")}  
         >  
           <Sun className="w-3.5 h-3.5" />  
-        </div>  
+        </button>  
       </div>  
     </header>  
 
