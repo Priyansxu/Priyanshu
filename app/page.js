@@ -6,68 +6,68 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const pages = [
-{
-id: "01",
-title: "Priyanshu Gupta",
-subtitle: "About Me",
-text: (
-<>
-Born in 2007. A curious and driven individual, always{" "}
-<span className="text-foreground italic font-serif">learning</span>,{" "}
-experimenting, and pushing boundaries in everything I do.
-</>
-),
-links: [
-{
-label: "Github",
-icon: <Github className="w-4 h-4" />,
-href: "https://github.com",
-},
-{
-label: "Instagram",
-icon: <Instagram className="w-4 h-4" />,
-href: "https://instagram.com/priyansxu_gupta",
-},
-],
-button: "Get in touch",
-action: "email",
-},
-{
-id: "02",
-title: "The Craft",
-subtitle: "Development & Design",
-text: (
-<>
-I work with Python and JavaScript, using{" "}
-<span className="text-foreground italic font-serif">frameworks</span>{" "}
-to build modern web applications with a focus on UI/UX. Alongside
-development,{" "}
-<span className="text-foreground italic font-serif">
-graphics designing
-</span>{" "}
-lets me bring interfaces to life with creative visuals.
-</>
-),
-button: "View my work",
-action: "projects",
-},
-{
-id: "03",
-title: "Beyond Code",
-subtitle: "Ideas & Explorations",
-text: (
-<>
-Beyond development, I'm fascinated by{" "}
-<span className="text-foreground italic font-serif">psychology</span>{" "}
-and{" "}
-<span className="text-foreground italic font-serif">astronomy</span>—
-digging into how people think and the vastness of the universe to spark
-new ideas and fuel my creativity.
-</>
-),
-button: "Let's connect",
-action: "social",
-},
+  {
+    id: "01",
+    title: "Priyanshu Gupta",
+    subtitle: "About Me",
+    text: (
+      <>
+        Born in 2007. A curious and driven individual, always{" "}
+        <span className="text-foreground italic font-serif">learning</span>,{" "}
+        experimenting, and pushing boundaries in everything I do.
+      </>
+    ),
+    links: [
+      {
+        label: "Github",
+        icon: <Github className="w-4 h-4" />,
+        href: "https://github.com",
+      },
+      {
+        label: "Instagram",
+        icon: <Instagram className="w-4 h-4" />,
+        href: "https://instagram.com/priyansxu_gupta",
+      },
+    ],
+    button: "Get in touch",
+    action: "email",
+  },
+  {
+    id: "02",
+    title: "The Craft",
+    subtitle: "Development & Design",
+    text: (
+      <>
+        I work with Python and JavaScript, using{" "}
+        <span className="text-foreground italic font-serif">frameworks</span>{" "}
+        to build modern web applications with a focus on UI/UX. Alongside
+        development,{" "}
+        <span className="text-foreground italic font-serif">
+          graphics designing
+        </span>{" "}
+        lets me bring interfaces to life with creative visuals.
+      </>
+    ),
+    button: "View my work",
+    action: "projects",
+  },
+  {
+    id: "03",
+    title: "Beyond Code",
+    subtitle: "Ideas & Explorations",
+    text: (
+      <>
+        Beyond development, I’m fascinated by{" "}
+        <span className="text-foreground italic font-serif">psychology</span>{" "}
+        and{" "}
+        <span className="text-foreground italic font-serif">astronomy</span>—
+        digging into how people think and the vastness of the universe to spark
+        new ideas and fuel my creativity.
+      </>
+    ),
+    button: "Let's connect",
+    action: "social",
+  },
 ];
 
 export default function Page() {
@@ -106,9 +106,9 @@ return (
         className={`flex items-center p-1 px-2 rounded-full cursor-pointer select-none ${isDark ? 'bg-[#111] border border-zinc-800' : 'bg-card border border-border shadow-sm'}`}  
       >  
         <button  
-          className={`mr-2 p-1.5 rounded-full transition-all ${  
+          className={`mr-2 p-1.5 transition-all ${  
             theme === "dark"  
-              ? "bg-[#333] shadow-xl text-white"  
+              ? "text-zinc-400"  
               : "text-zinc-500"  
           }`}  
           onClick={() => setTheme("dark")}  
@@ -192,7 +192,7 @@ return (
         <button  
           onClick={() => setPage((p) => Math.max(p - 1, 0))}  
           disabled={page === 0}  
-          className="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground disabled:opacity-0 disabled:pointer-events-none transition-all duration-200 group"  
+          className={`flex items-center gap-2 text-sm font-bold hover:text-foreground disabled:opacity-0 disabled:pointer-events-none transition-all duration-200 group ${isDark ? 'text-zinc-400' : 'text-muted-foreground'}`}  
         >  
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />  
           Back  
@@ -225,7 +225,7 @@ return (
           )  
         }  
         disabled={page === pages.length - 1}  
-        className="group flex items-center gap-4 px-8 py-4 bg-muted border border-border rounded-full font-bold text-sm hover:bg-accent hover:border-foreground/20 transition-all active:scale-[0.95] disabled:opacity-0 disabled:pointer-events-none"  
+        className={`group flex items-center gap-4 px-8 py-4 rounded-full font-bold text-sm hover:bg-accent transition-all active:scale-[0.95] disabled:opacity-0 disabled:pointer-events-none ${isDark ? 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700' : 'bg-muted border border-border hover:border-foreground/20'}`}  
       >  
         Next  
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />  
