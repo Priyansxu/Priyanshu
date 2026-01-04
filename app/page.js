@@ -93,7 +93,7 @@ export default function Page() {
       <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <div className="group cursor-crosshair">
-            <h1 className="text-xl font-medium font-monoscript flex items-center gap-3">
+            <h1 className="text-xl font-medium font-mono flex items-center gap-3">
               Priyanshu
               <span className="text-[10px] px-2 py-0.5 rounded-full border border-border bg-muted/50 text-muted-foreground tracking-[0.2em] font-bold">
                 dev
