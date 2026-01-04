@@ -12,30 +12,16 @@ const pages = [
     subtitle: "About Me",
     text: (
       <>
-        Born in 2007. A{" "}
-        <span className="text-foreground italic font-serif">
-          curious and driven
-        </span>{" "}
-        individual, always{" "}
-        <span className="text-foreground italic font-serif">
-          learning
-        </span>
-        ,{" "}
-        <span className="text-foreground italic font-serif">
-          experimenting
-        </span>
-        , and{" "}
-        <span className="text-foreground italic font-serif">
-          pushing boundaries
-        </span>{" "}
-        in everything I do.
+        Born in 2007. A curious and driven individual, always{" "}
+        <span className="text-foreground italic font-serif">learning</span>,{" "}
+        experimenting, and pushing boundaries in everything I do.
       </>
     ),
     links: [
       {
         label: "Github",
         icon: <Github className="w-4 h-4" />,
-        href: "https://github.com/Priyansxu",
+        href: "https://github.com",
       },
       {
         label: "Instagram",
@@ -53,18 +39,13 @@ const pages = [
     text: (
       <>
         I work with Python and JavaScript, using{" "}
+        <span className="text-foreground italic font-serif">frameworks</span>{" "}
+        to build modern web applications with a focus on UI/UX. Alongside
+        development,{" "}
         <span className="text-foreground italic font-serif">
-          frameworks
+          graphics designing
         </span>{" "}
-        to build modern web applications with a focus on{" "}
-        <span className="text-foreground italic font-serif">
-          UI/UX
-        </span>
-        . I also create{" "}
-        <span className="text-foreground italic font-serif">
-          graphics and visuals
-        </span>{" "}
-        that bring designs to life.
+        lets me bring interfaces to life with creative visuals.
       </>
     ),
     button: "View my work",
@@ -77,22 +58,11 @@ const pages = [
     text: (
       <>
         Beyond development, I’m fascinated by{" "}
-        <span className="text-foreground italic font-serif">
-          psychology
-        </span>{" "}
+        <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
-        <span className="text-foreground italic font-serif">
-          astronomy
-        </span>
-        —digging into how people think and the vastness of the universe to{" "}
-        <span className="text-foreground italic font-serif">
-          spark new ideas
-        </span>{" "}
-        and{" "}
-        <span className="text-foreground italic font-serif">
-          fuel my creativity
-        </span>
-        .
+        <span className="text-foreground italic font-serif">astronomy</span>—
+        digging into how people think and the vastness of the universe to spark
+        new ideas and fuel my creativity.
       </>
     ),
     button: "Let's connect",
