@@ -95,7 +95,7 @@ export default function Page() {
           <div className="group cursor-crosshair">
             <h1 className="text-xl font-medium font-mono flex items-center gap-3">
               Priyanshu
-              <span className="text-[10px] px-4 py-0.5 rounded-full border border-border bg-muted/50 text-muted-foreground tracking-[0.2em] font-bold">
+              <span className="text-[10px] px-2 py-[1px] rounded-full border border-border bg-muted/50 text-muted-foreground tracking-[0.2em] font-bold">
                 dev
               </span>
             </h1>
@@ -198,8 +198,7 @@ export default function Page() {
               Back
             </button>
 
-            <div className="hidden md:flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
-              <span>Progress</span>
+            <div className="md:flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
               <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
                 <motion.div
                   className="absolute inset-y-0 left-0 bg-primary origin-left"
@@ -228,7 +227,7 @@ export default function Page() {
             disabled={page === pages.length - 1}
             className="group flex items-center gap-4 px-8 py-4 bg-muted border border-border rounded-full font-bold text-sm hover:bg-accent hover:border-foreground/20 transition-all active:scale-[0.95] disabled:opacity-0 disabled:pointer-events-none"
           >
-            Next Step
+            Next
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </footer>
