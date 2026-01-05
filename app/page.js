@@ -13,7 +13,7 @@ const pages = [
     text: (
       <>
         Born in{" "}
-<span className="italic">2007</span>. A curious and driven individual,{" "}
+<span className="text-foreground italic font-serif">2007</span>. A curious and driven individual,{" "}
 <span className="text-foreground italic font-serif">learning</span>{" "}
 across different areas rather than committing to just a few.
       </>
