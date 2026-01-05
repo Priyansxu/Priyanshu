@@ -61,7 +61,7 @@ across different areas rather than committing to just a few.
         <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
         <span className="text-foreground italic font-serif">astronomy</span>—
-        digging into how people think and the vastness of the universe
+        understanding minds and exploring the cosmos.
       </>
     ),
     button: "Dm on Telegram",
