@@ -12,9 +12,10 @@ const pages = [
     subtitle: "About Me",
     text: (
       <>
-        Born in 2007. A curious and driven individual, always{" "}
-        <span className="text-foreground italic font-serif">learning</span>,{" "}
-        experimenting, and pushing boundaries in everything I do.
+        Born in{" "}
+<span className="italic">2007</span>. A curious and driven individual,{" "}
+<span className="text-foreground italic font-serif">learning</span>{" "}
+across different areas rather than committing to just a few.
       </>
     ),
     links: [
@@ -29,8 +30,8 @@ const pages = [
         href: "https://instagram.com/priyansxu_gupta",
       },
     ],
-    button: "Get in touch",
-    action: "email",
+    button: "Wanna email me?",
+    action: "mailto:priyansxu@yahoo.com",
   },
   {
     id: "02",
