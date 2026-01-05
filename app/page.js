@@ -57,14 +57,14 @@ across different areas rather than committing to just a few.
     subtitle: "Ideas & Explorations",
     text: (
       <>
-        Beyond tech, I’m fascinated by{" "}
+        I’m fascinated by{" "}
         <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
         <span className="text-foreground italic font-serif">astronomy</span>—
-        understanding minds and exploring the cosmos.
+        understanding minds and exploring the cosmos. And yeah I love electronics.
       </>
     ),
-    button: "Dm on Telegram",
+    button: "Chat on Telegram",
     action: "https://t.me/priyansxu_gupta",
   },
 ];
