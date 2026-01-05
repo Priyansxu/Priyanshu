@@ -41,16 +41,15 @@ across different areas rather than committing to just a few.
       <>
         I work with Python and JavaScript, using{" "}
         <span className="text-foreground italic font-serif">frameworks</span>{" "}
-        to build modern web applications with a focus on UI/UX. Alongside
-        development,{" "}
+        to build modern web apps. And {" "}
         <span className="text-foreground italic font-serif">
-          graphics designing
+          Graphics designing
         </span>{" "}
-        lets me bring interfaces to life with creative visuals.
+        has been my favourite for years.
       </>
     ),
-    button: "View my work",
-    action: "projects",
+    button: "Checkout my portfolio",
+    action: "https://priyanshu.js.cool",
   },
   {
     id: "03",
@@ -58,16 +57,15 @@ across different areas rather than committing to just a few.
     subtitle: "Ideas & Explorations",
     text: (
       <>
-        Beyond development, I’m fascinated by{" "}
+        Beyond tech, I’m fascinated by{" "}
         <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
         <span className="text-foreground italic font-serif">astronomy</span>—
-        digging into how people think and the vastness of the universe to spark
-        new ideas and fuel my creativity.
+        digging into how people think and the vastness of the universe
       </>
     ),
-    button: "Let's connect",
-    action: "social",
+    button: "Dm on Telegram",
+    action: "https://t.me/priyansxu_gupta",
   },
 ];
 
