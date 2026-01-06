@@ -5,7 +5,10 @@ export default {
     "./components/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+  fontFamily: {
+    lexend: ["LexendGiga", "sans-serif"],
   },
+},
   plugins: [],
 };
