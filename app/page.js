@@ -13,8 +13,8 @@ const pages = [
     text: (
       <>
         Born in{" "}
-        <span className="italic font-serif">2007</span>. A curious and driven individual,{" "}
-        <span className="italic font-serif">learning</span>{" "}
+        <span className="text-foreground italic font-serif">2007</span>. A curious and driven individual,{" "}
+        <span className="text-foreground italic font-serif">learning</span>{" "}
         across different areas rather than committing to just a few.
       </>
     ),
@@ -40,9 +40,9 @@ const pages = [
     text: (
       <>
         I work with Python and JavaScript, using{" "}
-        <span className="italic font-serif">frameworks</span>{" "}
+        <span className="text-foreground italic font-serif">frameworks</span>{" "}
         to build modern web apps. And{" "}
-        <span className="italic font-serif">Graphics designing</span>{" "}
+        <span className="text-foreground italic font-serif">Graphics designing</span>{" "}
         has been my favourite for years.
       </>
     ),
@@ -56,9 +56,9 @@ const pages = [
     text: (
       <>
         I'm fascinated by{" "}
-        <span className="italic font-serif">psychology</span>{" "}
+        <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
-        <span className="italic font-serif">astronomy</span>—
+        <span className="text-foreground italic font-serif">astronomy</span>—
         understanding minds and exploring the cosmos. And yeah I love electronics.
       </>
     ),
@@ -91,7 +91,7 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <span className="text-sm font-bold inline-block rounded-3xl px-3 bg-muted/50 text-muted-foreground dark:bg-white dark:text-black">
+            <span className="text-sm font-bold inline-block rounded-3xl px-3 border border-border bg-muted/50 text-muted-foreground dark:bg-[#fafafa] dark:text-black dark:border-none">
               dev
             </span>
           </h1>
@@ -99,14 +99,14 @@ export default function Page() {
           <div className="flex flex-col items-center gap-1 p-1 rounded-2xl bg-card border border-border shadow-sm dark:bg-[#111] dark:border-zinc-800">
             <button
               onClick={() => setTheme("dark")}
-              className="p-1.5 rounded-full text-zinc-500 hover:text-zinc-700 dark:text-white"
+              className="p-1.5 transition-all text-zinc-500 dark:text-zinc-400"
             >
               <Moon className="w-3.5 h-3.5" />
             </button>
 
             <button
               onClick={() => setTheme("light")}
-              className="p-1.5 rounded-full text-zinc-500 hover:text-zinc-700 bg-white text-zinc-900 shadow-lg dark:bg-transparent dark:shadow-none"
+              className="p-1.5 rounded-full transition-all bg-white shadow-xl text-zinc-700 dark:bg-transparent dark:shadow-none dark:text-zinc-500"
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -132,20 +132,20 @@ export default function Page() {
                   {current.id} — {current.subtitle}
                 </motion.span>
 
-                <h2 className="text-5xl md:text-8xl font-bold tracking-tight">
+                <h2 className="text-5xl md:text-8xl font-bold tracking-tight text-pretty">
                   {current.title}
                 </h2>
               </div>
 
               <div className="space-y-12">
-                <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl">
+                <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl text-balance">
                   {current.text}
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
                   <button
                     onClick={() => window.open(current.action, "_blank")}
-                    className="group flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg bg-foreground text-background shadow-foreground/5 dark:bg-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    className="group relative flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg bg-foreground text-background shadow-foreground/5 dark:bg-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                   >
                     {current.button}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -158,7 +158,7 @@ export default function Page() {
                           key={link.label}
                           href={link.href}
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                          className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-110"
                           aria-label={link.label}
                         >
                           {link.icon}
@@ -185,10 +185,10 @@ export default function Page() {
           <button
             onClick={() => setPage((p) => Math.min(p + 1, pages.length - 1))}
             disabled={page === pages.length - 1}
-            className="flex items-center gap-4 px-8 py-4 rounded-full font-bold text-sm bg-muted border border-border hover:border-foreground/20 dark:bg-zinc-900 dark:border-zinc-800 transition-all disabled:opacity-0"
+            className="group flex items-center gap-4 px-8 py-4 rounded-full font-bold text-sm bg-muted border border-border hover:border-foreground/20 dark:bg-zinc-900 dark:border-zinc-800 transition-all active:scale-[0.95] disabled:opacity-0"
           >
             Next
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </footer>
       </div>
