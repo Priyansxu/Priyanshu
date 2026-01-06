@@ -101,7 +101,7 @@ export default function Page() {
           >
             <button
               onClick={() => setTheme("dark")}
-              className={`p-1.5 transition-all ${isDark ? "text-zinc-700" : "text-zinc-500"}`}
+              className={`p-1.5 transition-all ${isDark ? "text-zinc-500" : "text-zinc-700"}`}
             >
               <Moon className="w-3.5 h-3.5" />
             </button>
