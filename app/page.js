@@ -19,16 +19,8 @@ const pages = [
       </>
     ),
     links: [
-      {
-        label: "Github",
-        icon: <Github className="w-4 h-4" />,
-        href: "https://github.com",
-      },
-      {
-        label: "Instagram",
-        icon: <Instagram className="w-4 h-4" />,
-        href: "https://instagram.com/priyansxu_gupta",
-      },
+      { label: "Github", icon: <Github className="w-4 h-4" />, href: "https://github.com" },
+      { label: "Instagram", icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
     ],
     button: "Wanna email me?",
     action: "mailto:priyansxu@yahoo.com",
@@ -72,16 +64,14 @@ export default function Page() {
   const [mounted, setMounted] = useState(false)
   const [page, setPage] = useState(0)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
+  useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
   const current = pages[page]
+  const isDark = theme === "dark"
 
   return (
-    <main className="min-h-screen flex flex-col text-foreground bg-background dark:bg-black selection:bg-primary/30 selection:text-primary-foreground">
+    <main className={`min-h-screen flex flex-col text-foreground selection:bg-primary/30 selection:text-primary-foreground ${isDark ? "bg-black" : "bg-background"}`}>
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[120px]" />
         <div className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[100px]" />
@@ -91,22 +81,36 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <span className="text-sm font-bold inline-block rounded-3xl px-3 border border-border bg-muted/50 text-muted-foreground dark:bg-[#fafafa] dark:text-black dark:border-none">
+            <span
+              className={`text-sm font-bold inline-block rounded-3xl px-3 ${
+                isDark
+                  ? "bg-[#fafafa] text-black"
+                  : "border border-border bg-muted/50 text-muted-foreground"
+              }`}
+            >
               dev
             </span>
           </h1>
 
-          <div className="flex flex-col items-center gap-1 p-1 rounded-2xl bg-card border border-border shadow-sm dark:bg-[#111] dark:border-zinc-800">
+          <div
+            className={`flex flex-col items-center gap-1 p-1 rounded-2xl cursor-pointer select-none ${
+              isDark
+                ? "bg-[#111] border border-zinc-800"
+                : "bg-card border border-border shadow-sm"
+            }`}
+          >
             <button
               onClick={() => setTheme("dark")}
-              className="p-1.5 transition-all text-zinc-500 dark:text-zinc-400"
+              className={`p-1.5 transition-all ${isDark ? "text-zinc-400" : "text-zinc-500"}`}
             >
               <Moon className="w-3.5 h-3.5" />
             </button>
 
             <button
               onClick={() => setTheme("light")}
-              className="p-1.5 rounded-full transition-all bg-white shadow-xl text-zinc-700 dark:bg-transparent dark:shadow-none dark:text-zinc-500"
+              className={`p-1.5 rounded-full transition-all ${
+                !isDark ? "bg-white shadow-xl text-zinc-700" : "text-zinc-500"
+              }`}
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -124,11 +128,7 @@ export default function Page() {
               className="space-y-10"
             >
               <div className="space-y-3">
-                <motion.span
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 0.6, x: 0 }}
-                  className="text-primary font-mono text-xs tracking-[0.3em] uppercase block"
-                >
+                <motion.span className="text-primary font-mono text-xs tracking-[0.3em] uppercase block">
                   {current.id} — {current.subtitle}
                 </motion.span>
 
@@ -137,37 +137,21 @@ export default function Page() {
                 </h2>
               </div>
 
-              <div className="space-y-12">
-                <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl text-balance">
-                  {current.text}
-                </p>
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl">
+                {current.text}
+              </p>
 
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
-                  <button
-                    onClick={() => window.open(current.action, "_blank")}
-                    className="group relative flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg bg-foreground text-background shadow-foreground/5 dark:bg-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-                  >
-                    {current.button}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-
-                  {current.links && (
-                    <div className="flex items-center gap-6 py-4">
-                      {current.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-110"
-                          aria-label={link.label}
-                        >
-                          {link.icon}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
+              <button
+                onClick={() => window.open(current.action, "_blank")}
+                className={`group flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl ${
+                  isDark
+                    ? "bg-white text-black shadow-white/5"
+                    : "bg-foreground text-background shadow-foreground/5"
+                }`}
+              >
+                {current.button}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
           </AnimatePresence>
         </section>
@@ -176,7 +160,9 @@ export default function Page() {
           <button
             onClick={() => setPage((p) => Math.max(p - 1, 0))}
             disabled={page === 0}
-            className="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground disabled:opacity-0"
+            className={`flex items-center gap-2 text-sm font-bold transition-all ${
+              isDark ? "text-zinc-400" : "text-muted-foreground"
+            } disabled:opacity-0`}
           >
             <ArrowLeft className="w-4 h-4" />
             Back
@@ -185,7 +171,11 @@ export default function Page() {
           <button
             onClick={() => setPage((p) => Math.min(p + 1, pages.length - 1))}
             disabled={page === pages.length - 1}
-            className="group flex items-center gap-4 px-8 py-4 rounded-full font-bold text-sm bg-muted border border-border hover:border-foreground/20 dark:bg-zinc-900 dark:border-zinc-800 transition-all active:scale-[0.95] disabled:opacity-0"
+            className={`group flex items-center gap-4 px-8 py-4 rounded-full font-bold text-sm transition-all ${
+              isDark
+                ? "bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
+                : "bg-muted border border-border hover:border-foreground/20"
+            } disabled:opacity-0`}
           >
             Next
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
