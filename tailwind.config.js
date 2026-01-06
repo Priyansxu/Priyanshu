@@ -6,9 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-  fontFamily: {
-    lexend: ["LexendGiga", "sans-serif"],
+      fontFamily: {
+        lexend: ["LexendGiga", "sans-serif"],
+      },
+    },
   },
-},
   plugins: [],
 };
