@@ -33,7 +33,7 @@ const pages = [
       <>
         I work with Python and JavaScript, using{" "}
         <span className="text-foreground italic font-serif">frameworks</span>{" "}
-        to build modern web apps. And{" "}
+        to build modern web apps.{" "}
         <span className="text-foreground italic font-serif">Graphics designing</span>{" "}
         has been my favourite for years.
       </>
@@ -50,8 +50,8 @@ const pages = [
         I'm fascinated by{" "}
         <span className="text-foreground italic font-serif">psychology</span>{" "}
         and{" "}
-        <span className="text-foreground italic font-serif">astronomy</span>—
-        understanding minds and exploring the cosmos. And yeah I love electronics.
+        <span className="text-foreground italic font-serif">astronomy</span> —
+        understanding minds & exploring the cosmos. And yeah I love electronics.
       </>
     ),
     button: "Chat on Telegram",
