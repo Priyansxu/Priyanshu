@@ -73,6 +73,14 @@ export default function Page() {
   const badgeStyle = isDark
     ? "bg-white text-black"
     : "border border-border bg-muted/50 text-muted-foreground"
+  
+  const backButtonStyle = isDark
+    ? "bg-zinc-800 text-zinc-400 hover:bg-zinc-900"
+    : "bg-[#e0dede] text-black hover:bg-[#d1d0d0]"
+  
+  const nextButtonStyle = isDark
+    ? "bg-white text-black"
+    : "bg-zinc-900 text-white"
 
   return (
     <main
@@ -93,7 +101,7 @@ export default function Page() {
           </h1>
 
           <div
-            className={`flex flex-row items-center gap-1 p-1 rounded-3xl ${
+            className={`flex flex-row items-center gap-1 p-1 rounded-2xl ${
               isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border shadow-sm"
             }`}
           >
@@ -176,18 +184,18 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-5 py-2 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-50`}
           >
             <ArrowLeft className="w-3 h-3" />
             Back
           </button>
 
-          <div className="text-xs font-mono leading-none">
-            <span className="inline-block text-foreground">
+          <div className="text-xs font-bold py-2">
+            <span className={`inline-block ${isDark ? "text-white" : "text-black"}`}>
               0{page + 1}
             </span>
-            <span className="inline-block px-2 text-muted-foreground/60">/</span>
-            <span className="inline-block text-muted-foreground/60">
+            <span className="inline-block px-3 opacity-50">/</span>
+            <span className={`inline-block ${isDark ? "text-white" : "text-black"} opacity-50`}>
               0{pages.length}
             </span>
           </div>
@@ -198,7 +206,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-5 py-2 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-50`}
           >
             Next
             <ArrowRight className="w-3 h-3" />
