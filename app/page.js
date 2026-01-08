@@ -183,13 +183,13 @@ export default function Page() {
           </button>
 
           <div className="flex items-center gap-3 text-xs font-mono">
-            <div className="w-24 h-[2px] bg-border relative rounded-full overflow-hidden">
+            <div className="w-24 h-[2px] bg-border rounded-full overflow-hidden flex items-center">
               <div
-                className="absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-300"
+                className="h-full bg-primary rounded-full transition-all duration-300"
                 style={{ width: `${((page + 1) / pages.length) * 100}%` }}
               />
             </div>
-            <p className="text-xs">
+            <p className="text-xs leading-none">
               <span className="inline-block text-foreground">
                 0{page + 1}
               </span>
