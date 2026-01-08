@@ -3,7 +3,7 @@
 import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram, Mail, Twitter, Send } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const pages = [
   {
@@ -74,30 +74,35 @@ export default function Page() {
     ? "bg-white text-black"
     : "border border-border bg-muted/50 text-muted-foreground"
 
-  const primaryButtonStyle = isDark
-    ? "bg-black text-white"
-    : "bg-white text-black"
-
   return (
-    <main className={`min-h-screen flex flex-col ${isDark ? "bg-black" : "bg-background"}`}>
+    <main
+      className={`min-h-screen flex flex-col text-foreground selection:bg-primary/30 selection:text-primary-foreground ${
+        isDark ? "bg-black" : "bg-background"
+      }`}
+    >
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[100px]" />
+      </div>
+
       <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
         <header className="flex items-center justify-between mb-24 md:mb-32">
-          <h1 className="text-xl font-medium font-lexend flex items-center gap-3">
+          <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
             <div className={`text-sm font-bold rounded-3xl px-3 ${badgeStyle}`}>dev</div>
           </h1>
 
           <div
-            className={`flex items-center gap-1 p-1 rounded-2xl ${
-              isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border"
+            className={`flex flex-row items-center gap-1 p-1 rounded-2xl ${
+              isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border shadow-sm"
             }`}
           >
-            <button onClick={() => setTheme("dark")} className="p-1.5">
+            <button onClick={() => setTheme("dark")} className={`p-1.5 ${isDark ? "text-zinc-500" : "text-zinc-700"}`}>
               <Moon className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => setTheme("light")}
-              className={`p-1.5 rounded-full ${!isDark ? "bg-white shadow" : ""}`}
+              className={`p-1.5 rounded-full ${!isDark ? "bg-white shadow-xl text-zinc-700" : "text-zinc-500"}`}
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -105,62 +110,94 @@ export default function Page() {
         </header>
 
         <section className="flex-1 flex flex-col justify-center max-w-2xl">
-          <div className="space-y-10">
-            <div className="space-y-3">
-              <div className="text-primary text-xs tracking-[0.3em] uppercase">
-                {current.id} — {current.subtitle}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={page}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+              className="space-y-10"
+            >
+              <div className="space-y-3">
+                <div className="text-primary text-xs tracking-[0.3em] uppercase">
+                  {current.id} — {current.subtitle}
+                </div>
+                <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
               </div>
-              <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
-            </div>
 
-            <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-              {current.text}
-            </p>
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl">
+                {current.text}
+              </p>
 
-            {current.buttonType === "social" ? (
-              <button
-                onClick={() => setSocialExpanded(!socialExpanded)}
-                className={`flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg ${primaryButtonStyle}`}
-              >
-                {current.button}
-                {!socialExpanded && <ArrowRight className="w-5 h-5" />}
-                {socialExpanded && (
-                  <div className="flex gap-2">
-                    {current.links.map((link) => (
-                      <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-                        {link.icon}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </button>
-            ) : (
-              <button
-                onClick={() => window.open(current.action, "_blank")}
-                className={`flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg ${primaryButtonStyle}`}
-              >
-                {current.button}
-                {current.buttonType === "email" && <Mail className="w-5 h-5" />}
-                {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
-              </button>
-            )}
-          </div>
+              {current.buttonType === "social" ? (
+                <motion.button
+                  onClick={() => setSocialExpanded(!socialExpanded)}
+                  className={`flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
+                    isDark ? "bg-white text-black" : "bg-black text-white"
+                  }`}
+                >
+                  <div>{current.button}</div>
+                  {!socialExpanded && <ArrowRight className="w-5 h-5" />}
+                  <AnimatePresence mode="wait">
+                    {socialExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "auto" }}
+                        exit={{ opacity: 0, width: 0 }}
+                        className="flex items-center gap-2"
+                      >
+                        {current.links.map((link, idx) => (
+                          <motion.a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: idx * 0.05 }}
+                            whileHover={{ scale: 1.2 }}
+                          >
+                            {link.icon}
+                          </motion.a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              ) : (
+                <button
+                  onClick={() => window.open(current.action, "_blank")}
+                  className={`flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
+                    isDark ? "bg-white text-black" : "bg-black text-white"
+                  }`}
+                >
+                  <div>{current.button}</div>
+                  {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
+                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                </button>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </section>
 
         <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-border pt-12">
           <button
-            onClick={() => setPage((p) => Math.max(p - 1, 0))}
+            onClick={() => {
+              setPage((p) => Math.max(p - 1, 0))
+              setSocialExpanded(false)
+            }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-4 py-1.5 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
+            className={`flex items-center gap-1 px-5 py-2 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
           >
             <ArrowLeft className="w-3 h-3" />
             Back
           </button>
 
           <div className="flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
-            <div className="w-24 h-[2px] bg-border rounded-full overflow-hidden">
+            <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
               <div
-                className="h-full bg-primary"
+                className="absolute inset-y-0 left-0 bg-primary"
                 style={{ width: `${((page + 1) / pages.length) * 100}%` }}
               />
             </div>
@@ -170,9 +207,12 @@ export default function Page() {
           </div>
 
           <button
-            onClick={() => setPage((p) => Math.min(p + 1, pages.length - 1))}
+            onClick={() => {
+              setPage((p) => Math.min(p + 1, pages.length - 1))
+              setSocialExpanded(false)
+            }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-4 py-1.5 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
+            className={`flex items-center gap-1 px-5 py-2 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
           >
             Next
             <ArrowRight className="w-3 h-3" />
