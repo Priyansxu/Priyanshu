@@ -93,7 +93,7 @@ export default function Page() {
           </h1>
 
           <div
-            className={`flex flex-row items-center gap-1 p-1 rounded-2xl ${
+            className={`flex flex-row items-center gap-1 p-1 rounded-3xl ${
               isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border shadow-sm"
             }`}
           >
@@ -182,22 +182,14 @@ export default function Page() {
             Back
           </button>
 
-          <div className="flex items-center gap-3 text-xs font-mono">
-            <div className="w-24 h-[2px] bg-border rounded-full overflow-hidden flex items-center">
-              <div
-                className="h-full bg-primary rounded-full transition-all duration-300"
-                style={{ width: `${((page + 1) / pages.length) * 100}%` }}
-              />
-            </div>
-            <p className="text-xs leading-none">
-              <span className="inline-block text-foreground">
-                0{page + 1}
-              </span>
-              <span className="inline-block px-2 text-muted-foreground/60">/</span>
-              <span className="inline-block text-muted-foreground/60">
-                0{pages.length}
-              </span>
-            </p>
+          <div className="text-xs font-mono leading-none">
+            <span className="inline-block text-foreground">
+              0{page + 1}
+            </span>
+            <span className="inline-block px-2 text-muted-foreground/60">/</span>
+            <span className="inline-block text-muted-foreground/60">
+              0{pages.length}
+            </span>
           </div>
 
           <button
