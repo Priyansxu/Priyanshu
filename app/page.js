@@ -89,7 +89,7 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <span className={`text-sm font-bold rounded-3xl px-3 ${badgeStyle}`}>dev</span>
+            <div className={`text-sm font-bold rounded-3xl px-3 ${badgeStyle}`}>dev</div>
           </h1>
 
           <div
@@ -120,9 +120,9 @@ export default function Page() {
               className="space-y-10"
             >
               <div className="space-y-3">
-                <span className="text-primary text-xs tracking-[0.3em] uppercase">
+                <div className="text-primary text-xs tracking-[0.3em] uppercase">
                   {current.id} — {current.subtitle}
-                </span>
+                </div>
                 <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
               </div>
 
@@ -137,10 +137,15 @@ export default function Page() {
                     isDark ? "bg-white text-black" : "bg-black text-white"
                   }`}
                 >
-                  <span>{current.button}</span>
+                  <div>{current.button}</div>
                   <AnimatePresence mode="wait">
                     {socialExpanded && (
-                      <motion.div className="flex items-center gap-2">
+                      <motion.div
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "auto" }}
+                        exit={{ opacity: 0, width: 0 }}
+                        className="flex items-center gap-2"
+                      >
                         {current.links.map((link, idx) => (
                           <motion.a
                             key={link.href}
@@ -166,7 +171,7 @@ export default function Page() {
                     isDark ? "bg-white text-black" : "bg-black text-white"
                   }`}
                 >
-                  {current.button}
+                  <div>{current.button}</div>
                   {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
                   {current.buttonType === "email" && <Mail className="w-5 h-5" />}
                 </button>
@@ -175,7 +180,7 @@ export default function Page() {
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 flex items-center justify-between">
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-border pt-12">
           <button
             onClick={() => {
               setPage((p) => Math.max(p - 1, 0))
@@ -188,9 +193,19 @@ export default function Page() {
             Back
           </button>
 
-          <span className={`text-xs font-bold rounded-3xl px-4 py-1.5 ${badgeStyle}`}>
-            {page + 1}/{pages.length}
-          </span>
+          <div className="md:flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
+            <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
+              <motion.div
+                className="absolute inset-y-0 left-0 bg-primary origin-left"
+                initial={false}
+                animate={{ scaleX: (page + 1) / pages.length }}
+                transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+              />
+            </div>
+            <div className="text-foreground">
+              0{page + 1} / 0{pages.length}
+            </div>
+          </div>
 
           <button
             onClick={() => {
