@@ -137,26 +137,19 @@ export default function Page() {
                   }`}
                 >
                   <div>{current.button}</div>
-                  <motion.div
-                    initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: "auto" }}
-                    className="flex items-center gap-2"
-                  >
-                    {current.links.map((link, idx) => (
-                      <motion.a
+                  <div className="flex items-center gap-2">
+                    {current.links.map((link) => (
+                      <a
                         key={link.href}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: idx * 0.05 }}
-                        whileHover={{ scale: 1.2 }}
+                        className="hover:scale-110 transition-transform"
                       >
                         {link.icon}
-                      </motion.a>
+                      </a>
                     ))}
-                  </motion.div>
+                  </div>
                 </div>
               ) : (
                 <button
@@ -190,7 +183,7 @@ export default function Page() {
           <div className="flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
             <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
               <div
-                className="absolute bg-primary"
+                className="absolute inset-0 bg-primary origin-left"
                 style={{ transform: `scaleX(${(page + 1) / pages.length})` }}
               />
             </div>
