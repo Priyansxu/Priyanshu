@@ -28,7 +28,7 @@ const pages = [
     text: (
       <>
         I work with Python and JavaScript, using{" "}
-        <span className="text-foreground italic font-serif">frameworks</span> to build modekrn web apps.{" "}
+        <span className="text-foreground italic font-serif">frameworks</span> to build modern web apps.{" "}
         <span className="text-foreground italic font-serif">Graphics designing</span> has been my favourite for years.
       </>
     ),
@@ -70,6 +70,10 @@ export default function Page() {
   const current = pages[page]
   const isDark = theme === "dark"
 
+  const badgeStyle = isDark
+    ? "bg-white text-black"
+    : "border border-border bg-muted/50 text-muted-foreground"
+
   return (
     <main
       className={`min-h-screen flex flex-col text-foreground selection:bg-primary/30 selection:text-primary-foreground ${
@@ -85,13 +89,7 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <span
-              className={`text-sm font-bold rounded-3xl px-3 ${
-                isDark ? "bg-white text-black" : "border border-border bg-muted/50 text-muted-foreground"
-              }`}
-            >
-              dev
-            </span>
+            <span className={`text-sm font-bold rounded-3xl px-3 ${badgeStyle}`}>dev</span>
           </h1>
 
           <div
@@ -99,18 +97,12 @@ export default function Page() {
               isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border shadow-sm"
             }`}
           >
-            <button
-              onClick={() => setTheme("dark")}
-              className={`p-1.5 ${isDark ? "text-zinc-500" : "text-zinc-700"}`}
-            >
+            <button onClick={() => setTheme("dark")} className={`p-1.5 ${isDark ? "text-zinc-500" : "text-zinc-700"}`}>
               <Moon className="w-3.5 h-3.5" />
             </button>
-
             <button
               onClick={() => setTheme("light")}
-              className={`p-1.5 rounded-full ${
-                !isDark ? "bg-white shadow-xl text-zinc-700" : "text-zinc-500"
-              }`}
+              className={`p-1.5 rounded-full ${!isDark ? "bg-white shadow-xl text-zinc-700" : "text-zinc-500"}`}
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -148,12 +140,7 @@ export default function Page() {
                   <span>{current.button}</span>
                   <AnimatePresence mode="wait">
                     {socialExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: "auto" }}
-                        exit={{ opacity: 0, width: 0 }}
-                        className="flex items-center gap-2"
-                      >
+                      <motion.div className="flex items-center gap-2">
                         {current.links.map((link, idx) => (
                           <motion.a
                             key={link.href}
@@ -195,13 +182,15 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-5 py-2 rounded-full text-xs font-semibold ${
-              isDark ? "bg-white text-black" : "bg-black text-white"
-            } disabled:opacity-0`}
+            className={`flex items-center gap-1 px-4 py-1.5 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
           >
             <ArrowLeft className="w-3 h-3" />
             Back
           </button>
+
+          <span className={`text-xs font-bold rounded-3xl px-4 py-1.5 ${badgeStyle}`}>
+            {page + 1}/{pages.length}
+          </span>
 
           <button
             onClick={() => {
@@ -209,9 +198,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-6 py-2.5 rounded-full text-xs font-semibold ${
-              isDark ? "bg-white text-black" : "bg-black text-white"
-            } disabled:opacity-0`}
+            className={`flex items-center gap-1 px-4 py-1.5 rounded-3xl text-xs font-bold ${badgeStyle} disabled:opacity-0`}
           >
             Next
             <ArrowRight className="w-3 h-3" />
