@@ -132,7 +132,7 @@ export default function Page() {
 
               {current.buttonType === "social" ? (
                 <div
-                  className={`flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
+                  className={`inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
                     isDark ? "bg-white text-black" : "bg-black text-white"
                   }`}
                 >
