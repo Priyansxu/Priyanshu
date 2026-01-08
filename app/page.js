@@ -184,7 +184,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-50`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-10`}
           >
             <ArrowLeft className="w-3 h-3" />
             Back
@@ -206,7 +206,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-50`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-10`}
           >
             Next
             <ArrowRight className="w-3 h-3" />
