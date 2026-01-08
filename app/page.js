@@ -35,9 +35,9 @@ const pages = [
     button: "Social medias",
     buttonType: "social",
     links: [
-      { label: "Github", icon: <Github className="w-4 h-4" />, href: "https://github.com" },
+      { label: "Github", icon: <Github className="w-4 h-4" />, href: "https://github.com/Priyansxu" },
       { label: "Instagram", icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
-      { label: "Twitter", icon: <Twitter className="w-4 h-4" />, href: "https://twitter.com" },
+      { label: "Twitter", icon: <Twitter className="w-4 h-4" />, href: "https://x.com/priyansxu_gupta" },
       { label: "Telegram", icon: <Send className="w-4 h-4" />, href: "https://t.me/priyansxu_gupta" },
     ],
   },
@@ -184,7 +184,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-10`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-0`}
           >
             <ArrowLeft className="w-3 h-3" />
             Back
@@ -206,7 +206,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-10`}
+            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-0`}
           >
             Next
             <ArrowRight className="w-3 h-3" />
