@@ -190,7 +190,7 @@ export default function Page() {
           <div className="flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
             <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
               <div
-                className="absolute inset-0 bg-primary origin-left"
+                className="absolute bg-primary"
                 style={{ transform: `scaleX(${(page + 1) / pages.length})` }}
               />
             </div>
