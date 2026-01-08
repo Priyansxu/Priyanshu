@@ -128,11 +128,11 @@ export default function Page() {
               className="space-y-10"
             >
               <div className="space-y-3">
-                <motion.span className="text-primary font-mona text-xs tracking-[0.3em] uppercase block">
+                <motion.span className="text-primary font-mona text-xs tracking-tight uppercase block">
                   {current.id} — {current.subtitle}
                 </motion.span>
 
-                <h2 className="text-5xl md:text-8xl font-bold tracking-tight text-pretty">
+                <h2 className="text-5xl md:text-8xl font-mona text-pretty">
                   {current.title}
                 </h2>
               </div>
