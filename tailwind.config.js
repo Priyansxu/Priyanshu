@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         lexend: ["LexendGiga", "sans-serif"],
+        mona: ["MonaSans", "sans-serif"],
       },
     },
   },
