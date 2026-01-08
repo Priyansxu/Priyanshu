@@ -131,40 +131,33 @@ export default function Page() {
               </p>
 
               {current.buttonType === "social" ? (
-                <motion.button
-                  onClick={() => setSocialExpanded(!socialExpanded)}
+                <div
                   className={`flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
                     isDark ? "bg-white text-black" : "bg-black text-white"
                   }`}
                 >
                   <div>{current.button}</div>
-                  {!socialExpanded && <ArrowRight className="w-5 h-5" />}
-                  <AnimatePresence mode="wait">
-                    {socialExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: "auto" }}
-                        exit={{ opacity: 0, width: 0 }}
-                        className="flex items-center gap-2"
+                  <motion.div
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    className="flex items-center gap-2"
+                  >
+                    {current.links.map((link, idx) => (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.05 }}
+                        whileHover={{ scale: 1.2 }}
                       >
-                        {current.links.map((link, idx) => (
-                          <motion.a
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: idx * 0.05 }}
-                            whileHover={{ scale: 1.2 }}
-                          >
-                            {link.icon}
-                          </motion.a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.button>
+                        {link.icon}
+                      </motion.a>
+                    ))}
+                  </motion.div>
+                </div>
               ) : (
                 <button
                   onClick={() => window.open(current.action, "_blank")}
@@ -197,8 +190,8 @@ export default function Page() {
           <div className="flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
             <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
               <div
-                className="absolute inset-y-0 left-0 bg-primary"
-                style={{ width: `${((page + 1) / pages.length) * 100}%` }}
+                className="absolute inset-0 bg-primary origin-left"
+                style={{ transform: `scaleX(${(page + 1) / pages.length})` }}
               />
             </div>
             <div className="text-foreground">
