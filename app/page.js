@@ -130,39 +130,41 @@ export default function Page() {
                 {current.text}
               </p>
 
-              {current.buttonType === "social" ? (
-                <div
-                  className={`inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
-                    isDark ? "bg-white text-black" : "bg-black text-white"
-                  }`}
-                >
-                  <div>{current.button}</div>
-                  <div className="flex items-center gap-2">
-                    {current.links.map((link) => (
-                      <a
+              <div
+                className={`inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
+                  isDark ? "bg-white text-black" : "bg-black text-white"
+                }`}
+              >
+                <div>{current.button}</div>
+                
+                {current.buttonType === "social" ? (
+                  <motion.div
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    className="flex items-center gap-2"
+                  >
+                    {current.links.map((link, idx) => (
+                      <motion.a
                         key={link.href}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.05 }}
+                        whileHover={{ scale: 1.2 }}
                       >
                         {link.icon}
-                      </a>
+                      </motion.a>
                     ))}
-                  </div>
-                </div>
-              ) : (
-                <button
-                  onClick={() => window.open(current.action, "_blank")}
-                  className={`flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
-                    isDark ? "bg-white text-black" : "bg-black text-white"
-                  }`}
-                >
-                  <div>{current.button}</div>
-                  {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
-                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
-                </button>
-              )}
+                  </motion.div>
+                ) : (
+                  <>
+                    {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
+                    {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                  </>
+                )}
+              </div>
             </motion.div>
           </AnimatePresence>
         </section>
@@ -181,10 +183,10 @@ export default function Page() {
           </button>
 
           <div className="flex items-center gap-4 font-mono text-[10px] tracking-widest uppercase text-muted-foreground/60">
-            <div className="w-24 h-[2px] bg-border relative overflow-hidden rounded-full">
+            <div className="w-24 h-[2px] bg-border relative rounded-full flex items-center">
               <div
-                className="absolute inset-0 bg-primary origin-left"
-                style={{ transform: `scaleX(${(page + 1) / pages.length})` }}
+                className="h-full bg-primary rounded-full transition-all duration-300"
+                style={{ width: `${((page + 1) / pages.length) * 100}%` }}
               />
             </div>
             <div className="text-foreground">
