@@ -157,7 +157,7 @@ export default function Page() {
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#E6E7EB] pt-12">
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#E6E7EB] pt-12 dark:border-[#272729]">
           <button
             onClick={() => {
               setPage((p) => Math.max(p - 1, 0))
@@ -182,7 +182,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white dark:bg-white dark:text-black disabled:opacity-0"
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white dark:bg-white dark:text-black disabled:opacity-50"
           >
             Next
             <ArrowRight className="w-3 h-3" />
