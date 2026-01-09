@@ -164,7 +164,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#e0dede] text-black hover:bg-[#d1d0d0] dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-900 disabled:opacity-0"
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#EEEEEE] text-[#7F7F7F] dark:bg-zinc-800 dark:text-zinc-400 disabled:opacity-50"
           >
             <ArrowLeft className="w-3 h-3" />
             Back
