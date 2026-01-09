@@ -157,14 +157,14 @@ export default function Page() {
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-border pt-12">
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#111111] pt-12">
           <button
             onClick={() => {
               setPage((p) => Math.max(p - 1, 0))
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#EEEEEE] text-[#7F7F7F] dark:bg-zinc-800 dark:text-zinc-400 disabled:opacity-50"
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#EEEEEE] text-[#7F7F7F] dark:bg-[#141414] dark:text-[#515055] disabled:opacity-50"
           >
             <ArrowLeft className="w-3 h-3" />
             Back
