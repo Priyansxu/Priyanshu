@@ -80,12 +80,12 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <div className="text-sm font-bold rounded-3xl px-3 bg-white text-black dark:border dark:border-border dark:bg-muted/50 dark:text-muted-foreground">
+            <div className="text-sm font-bold rounded-3xl px-3 border border-[#E6E7EB] bg-white text-black dark:bg-muted/50 dark:text-muted-foreground">
               dev
             </div>
           </h1>
 
-          <div className="flex flex-row items-center gap-1 p-1 rounded-2xl bg-card border border-border shadow-sm dark:bg-[#111] dark:border-zinc-800">
+          <div className="flex flex-row items-center gap-1 p-1 rounded-3xl bg-card border border-[#E6E7EB] shadow-sm dark:bg-[#111111] dark:border-[#272729]">
             <button
               onClick={() => setTheme("dark")}
               className="p-1.5 text-zinc-700 dark:text-zinc-500"
