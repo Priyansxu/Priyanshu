@@ -68,26 +68,9 @@ export default function Page() {
   if (!mounted) return null
 
   const current = pages[page]
-  const isDark = theme === "dark"
-
-  const badgeStyle = isDark
-    ? "bg-white text-black"
-    : "border border-border bg-muted/50 text-muted-foreground"
-  
-  const backButtonStyle = isDark
-    ? "bg-zinc-800 text-zinc-400 hover:bg-zinc-900"
-    : "bg-[#e0dede] text-black hover:bg-[#d1d0d0]"
-  
-  const nextButtonStyle = isDark
-    ? "bg-white text-black"
-    : "bg-zinc-900 text-white"
 
   return (
-    <main
-      className={`min-h-screen flex flex-col text-foreground selection:bg-primary/30 selection:text-primary-foreground ${
-        isDark ? "bg-black" : "bg-background"
-      }`}
-    >
+    <main className="min-h-screen flex flex-col bg-background dark:bg-black text-foreground selection:bg-primary/30 selection:text-primary-foreground">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[120px]" />
         <div className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[100px]" />
@@ -97,20 +80,21 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <div className={`text-sm font-bold rounded-3xl px-3 ${badgeStyle}`}>dev</div>
+            <div className="text-sm font-bold rounded-3xl px-3 bg-white text-black dark:border dark:border-border dark:bg-muted/50 dark:text-muted-foreground">
+              dev
+            </div>
           </h1>
 
-          <div
-            className={`flex flex-row items-center gap-1 p-1 rounded-2xl ${
-              isDark ? "bg-[#111] border border-zinc-800" : "bg-card border border-border shadow-sm"
-            }`}
-          >
-            <button onClick={() => setTheme("dark")} className={`p-1.5 ${isDark ? "text-zinc-500" : "text-zinc-700"}`}>
+          <div className="flex flex-row items-center gap-1 p-1 rounded-2xl bg-card border border-border shadow-sm dark:bg-[#111] dark:border-zinc-800">
+            <button
+              onClick={() => setTheme("dark")}
+              className="p-1.5 text-zinc-700 dark:text-zinc-500"
+            >
               <Moon className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => setTheme("light")}
-              className={`p-1.5 rounded-full ${!isDark ? "bg-white shadow-xl text-zinc-700" : "text-zinc-500"}`}
+              className="p-1.5 rounded-full text-zinc-500 dark:text-zinc-500 [&:not(.dark_*)]:bg-white [&:not(.dark_*)]:shadow-xl [&:not(.dark_*)]:text-zinc-700"
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -138,13 +122,9 @@ export default function Page() {
                 {current.text}
               </p>
 
-              <div
-                className={`inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl ${
-                  isDark ? "bg-white text-black" : "bg-black text-white"
-                }`}
-              >
+              <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
                 <div>{current.button}</div>
-                
+
                 {current.buttonType === "social" ? (
                   <motion.div
                     initial={{ opacity: 0, width: 0 }}
@@ -184,20 +164,16 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === 0}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${backButtonStyle} disabled:opacity-0`}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#e0dede] text-black hover:bg-[#d1d0d0] dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-900 disabled:opacity-0"
           >
             <ArrowLeft className="w-3 h-3" />
             Back
           </button>
 
           <div className="text-xs font-bold py-2">
-            <span className={`inline-block ${isDark ? "text-white" : "text-black"}`}>
-              0{page + 1}
-            </span>
+            <span className="inline-block text-black dark:text-white">0{page + 1}</span>
             <span className="inline-block px-3 opacity-50">/</span>
-            <span className={`inline-block ${isDark ? "text-white" : "text-black"} opacity-50`}>
-              0{pages.length}
-            </span>
+            <span className="inline-block text-black dark:text-white opacity-50">0{pages.length}</span>
           </div>
 
           <button
@@ -206,7 +182,7 @@ export default function Page() {
               setSocialExpanded(false)
             }}
             disabled={page === pages.length - 1}
-            className={`flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold ${nextButtonStyle} disabled:opacity-0`}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white dark:bg-white dark:text-black disabled:opacity-0"
           >
             Next
             <ArrowRight className="w-3 h-3" />
