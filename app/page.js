@@ -80,7 +80,7 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24 md:mb-32">
           <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <div className="text-sm font-bold rounded-3xl px-3 border border-[#E6E7EB] bg-white text-black">
+            <div className="text-sm rounded-3xl px-3 border border-[#E6E7EB] bg-white text-black">
               dev
             </div>
           </h1>
@@ -157,7 +157,7 @@ export default function Page() {
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#272729] pt-12">
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#E6E7EB] pt-12">
           <button
             onClick={() => {
               setPage((p) => Math.max(p - 1, 0))
