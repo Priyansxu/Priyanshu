@@ -75,7 +75,9 @@ export default function Page() {
         <header className="flex items-center justify-between mb-24">
           <h1 className="text-xl font-medium flex items-center gap-3">
             Priyanshu
-            <div className="text-sm rounded-3xl px-3 border bg-white text-black">dev</div>
+            <div className="text-sm rounded-3xl px-3 border bg-white text-black">
+              dev
+            </div>
           </h1>
 
           <div className="flex gap-1 p-1 rounded-3xl border bg-card">
@@ -95,25 +97,27 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+              transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1] }}
               className="space-y-10"
             >
-              <div>
+              <div className="space-y-3">
                 <div className="text-primary text-xs tracking-[0.3em] uppercase">
                   {current.id} — {current.subtitle}
                 </div>
-                <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
+                <h2 className="text-5xl md:text-8xl font-mona">
+                  {current.title}
+                </h2>
               </div>
 
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground max-w-xl">
                 {current.text}
               </p>
 
               {current.buttonType !== "social" ? (
                 <Link href={current.action}>
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
                     className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black cursor-pointer"
                   >
                     {current.button}
@@ -129,9 +133,10 @@ export default function Page() {
                       key={l.href}
                       href={l.href}
                       target="_blank"
-                      whileHover={{ scale: 1.25 }}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.2 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: i * 0.05 }}
                     >
                       {l.icon}
@@ -144,33 +149,27 @@ export default function Page() {
         </section>
 
         <footer className="mt-24 flex items-center justify-between border-t pt-12">
-          <motion.button
-            whileHover={{ y: -3 }}
-            animate={{ y: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          <button
             onClick={() => setPage(p => Math.max(p - 1, 0))}
             disabled={page === 0}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-200 disabled:opacity-40"
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-200 text-zinc-600 disabled:opacity-40"
           >
             <ArrowLeft className="w-3 h-3" />
             Back
-          </motion.button>
+          </button>
 
           <div className="text-xs font-bold">
             0{page + 1} / 0{pages.length}
           </div>
 
-          <motion.button
-            whileHover={{ y: -3 }}
-            animate={{ y: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 0.2 }}
+          <button
             onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))}
             disabled={page === pages.length - 1}
             className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white disabled:opacity-40"
           >
             Next
             <ArrowRight className="w-3 h-3" />
-          </motion.button>
+          </button>
         </footer>
       </div>
     </main>
