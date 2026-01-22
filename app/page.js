@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
 import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram, Mail, Twitter, Send } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
 
 const pages = [
   {
@@ -60,9 +60,10 @@ const pages = [
 ]
 
 export default function Page() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [page, setPage] = useState(0)
+  const [socialExpanded, setSocialExpanded] = useState(false)
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
@@ -70,19 +71,32 @@ export default function Page() {
   const current = pages[page]
 
   return (
-    <main className="min-h-screen flex flex-col bg-background dark:bg-black text-foreground">
+    <main className="min-h-screen flex flex-col bg-background dark:bg-black text-foreground selection:bg-primary/30 selection:text-primary-foreground">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[100px]" />
+      </div>
+
       <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
         <header className="flex items-center justify-between mb-24 md:mb-32">
-          <h1 className="text-xl font-medium font-lexend flex items-center gap-3">
+          <h1 className="text-xl font-medium font-lexend flex items-center gap-3 cursor-crosshair">
             Priyanshu
-            <div className="text-sm rounded-3xl px-3 border bg-white text-black">dev</div>
+            <div className="text-sm rounded-3xl px-3 border border-[#E6E7EB] bg-white text-black">
+              dev
+            </div>
           </h1>
 
-          <div className="flex gap-1 p-1 rounded-3xl bg-card border">
-            <button onClick={() => setTheme("dark")} className="p-1.5">
+          <div className="flex flex-row items-center gap-1 p-1 rounded-3xl bg-card border border-[#E6E7EB] shadow-sm dark:bg-[#111111] dark:border-[#272729]">
+            <button
+              onClick={() => setTheme("dark")}
+              className="p-1.5 text-zinc-700 dark:text-zinc-500"
+            >
               <Moon className="w-3.5 h-3.5" />
             </button>
-            <button onClick={() => setTheme("light")} className="p-1.5 rounded-full bg-white shadow-xl">
+            <button
+              onClick={() => setTheme("light")}
+              className="p-1.5 rounded-full text-zinc-500 dark:text-zinc-500 [&:not(.dark_*)]:bg-white [&:not(.dark_*)]:shadow-xl [&:not(.dark_*)]:text-zinc-700"
+            >
               <Sun className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -98,50 +112,86 @@ export default function Page() {
               transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
               className="space-y-10"
             >
-              <div>
+              <div className="space-y-3">
                 <div className="text-primary text-xs tracking-[0.3em] uppercase">
                   {current.id} — {current.subtitle}
                 </div>
                 <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
               </div>
 
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">{current.text}</p>
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-medium max-w-xl">
+                {current.text}
+              </p>
 
-              {current.buttonType !== "social" ? (
+              {current.buttonType === "social" ? (
+                <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
+                  <div>{current.button}</div>
+                  <motion.div
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    className="flex items-center gap-2"
+                  >
+                    {current.links.map((link, idx) => (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.05 }}
+                        whileHover={{ scale: 1.2 }}
+                      >
+                        {link.icon}
+                      </motion.a>
+                    ))}
+                  </motion.div>
+                </div>
+              ) : (
                 <Link
                   href={current.action}
-                  target={current.action?.startsWith("http") ? "_blank" : undefined}
+                  target={current.buttonType === "default" ? "_blank" : undefined}
+                  rel={current.buttonType === "default" ? "noopener noreferrer" : undefined}
                   className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black"
                 >
-                  {current.button}
-                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                  <div>{current.button}</div>
                   {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
+                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
                 </Link>
-              ) : (
-                <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
-                  {current.button}
-                  <div className="flex gap-3">
-                    {current.links.map((link) => (
-                      <Link key={link.href} href={link.href} target="_blank">
-                        {link.icon}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
               )}
             </motion.div>
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 flex items-center justify-between">
-          <button onClick={() => setPage(p => Math.max(p - 1, 0))} disabled={page === 0}>
-            <ArrowLeft className="w-4 h-4" />
+        <footer className="mt-24 md:mt-32 flex items-center justify-between border-t border-[#E6E7EB] pt-12 dark:border-[#272729]">
+          <button
+            onClick={() => {
+              setPage((p) => Math.max(p - 1, 0))
+              setSocialExpanded(false)
+            }}
+            disabled={page === 0}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-[#EEEEEE] text-[#7F7F7F] dark:bg-[#141414] dark:text-[#515055] disabled:opacity-50"
+          >
+            <ArrowLeft className="w-3 h-3" />
+            Back
           </button>
 
-          <span>{page + 1} / {pages.length}</span>
+          <div className="text-xs font-bold py-2">
+            <span className="inline-block text-black dark:text-white">0{page + 1}</span>
+            <span className="inline-block px-3 opacity-50">/</span>
+            <span className="inline-block text-black dark:text-white opacity-50">0{pages.length}</span>
+          </div>
 
-          <button onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))} disabled={page === pages.length - 1}>
-            <ArrowRight className="w-4 h-4" />
+          <button
+            onClick={() => {
+              setPage((p) => Math.min(p + 1, pages.length - 1))
+              setSocialExpanded(false)
+            }}
+            disabled={page === pages.length - 1}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white dark:bg-white dark:text-black disabled:opacity-50"
+          >
+            Next
+            <ArrowRight className="w-3 h-3" />
           </button>
         </footer>
       </div>
