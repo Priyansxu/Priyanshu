@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link";
-import { useTheme } from "next-themes";
+import Link from "next/link"; 
+import { useTheme } from "next-themes"; 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"
-import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram, Mail, Twitter, Send } from "lucide-react";
+import { motion, AnimatePresence, animate } from "framer-motion"; 
+import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram, Mail, Twitter, Send } from "lucide-react"
 
 const pages = [
   {
@@ -24,10 +24,10 @@ const pages = [
     button: "Social medias",
     buttonType: "social",
     links: [
-      { label: "Github", icon: <Github className="w-4 h-4" />, href: "https://github.com/Priyansxu" },
-      { label: "Instagram", icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
-      { label: "Twitter", icon: <Twitter className="w-4 h-4" />, href: "https://x.com/priyansxu_gupta" },
-      { label: "Telegram", icon: <Send className="w-4 h-4" />, href: "https://t.me/priyansxu_gupta" },
+      { icon: <Github className="w-4 h-4" />, href: "https://github.com/Priyansxu" },
+      { icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
+      { icon: <Twitter className="w-4 h-4" />, href: "https://x.com/priyansxu_gupta" },
+      { icon: <Send className="w-4 h-4" />, href: "https://t.me/priyansxu_gupta" },
     ],
   },
   {
@@ -46,9 +46,23 @@ export default function Page() {
   const [mounted, setMounted] = useState(false)
   const [page, setPage] = useState(0)
 
-  useEffect(() => setMounted(true), [])
-  if (!mounted) return null
+  useEffect(() => {
+    setMounted(true)
+    const start = window.scrollY
+    const bottom = document.documentElement.scrollHeight - window.innerHeight
+    animate(start, bottom, {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: v => window.scrollTo(0, v),
+      onComplete: () => animate(bottom, start, {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        onUpdate: v => window.scrollTo(0, v),
+      })
+    })
+  }, [])
 
+  if (!mounted) return null
   const current = pages[page]
 
   return (
@@ -64,7 +78,7 @@ export default function Page() {
 
         <section className="flex-1 flex flex-col justify-center max-w-2xl">
           <AnimatePresence mode="wait">
-            <motion.div key={page} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="space-y-10">
+            <motion.div key={page} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -24 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="space-y-10">
               <div className="space-y-3">
                 <div className="text-primary text-xs tracking-[0.3em] uppercase">{current.id} — {current.subtitle}</div>
                 <h2 className="text-5xl md:text-8xl">{current.title}</h2>
@@ -72,7 +86,7 @@ export default function Page() {
               <p className="text-xl md:text-2xl">{current.text}</p>
 
               {current.buttonType !== "social" ? (
-                <Link href={current.action!} target={current.buttonType === "default" ? "_blank" : undefined} className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
+                <Link href={current.action} target={current.buttonType === "default" ? "_blank" : undefined} rel="noopener noreferrer" className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
                   <span>{current.button}</span>
                   {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
                   {current.buttonType === "email" && <Mail className="w-5 h-5" />}
@@ -81,8 +95,8 @@ export default function Page() {
                 <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
                   <span>{current.button}</span>
                   <motion.div initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: "auto" }} className="flex items-center gap-2">
-                    {current.links.map((link, idx) => (
-                      <motion.a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: idx * 0.05 }} whileHover={{ scale: 1.2 }}>
+                    {current.links.map((link, i) => (
+                      <motion.a key={i} href={link.href} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.05 }} whileHover={{ scale: 1.2 }}>
                         {link.icon}
                       </motion.a>
                     ))}
