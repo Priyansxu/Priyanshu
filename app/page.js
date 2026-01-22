@@ -1,17 +1,23 @@
 "use client"
 
-import Link from "next/link"; 
-import { useTheme } from "next-themes"; 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence, animate } from "framer-motion"; 
+import Link from "next/link"
 import { Moon, Sun, ArrowRight, ArrowLeft, Github, Instagram, Mail, Twitter, Send } from "lucide-react"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const pages = [
   {
     id: "01",
     title: "Priyanshu Gupta",
     subtitle: "About Me",
-    text: <>Born in <span className="text-foreground italic font-serif">2007</span>. A curious and driven individual, <span className="text-foreground italic font-serif">learning</span> across different areas rather than committing to just a few.</>,
+    text: (
+      <>
+        Born in <span className="text-foreground italic font-serif">2007</span>. A curious and driven individual,{" "}
+        <span className="text-foreground italic font-serif">learning</span> across different areas rather than committing
+        to just a few.
+      </>
+    ),
     button: "Wanna email me?",
     action: "mailto:priyansxu@yahoo.com",
     buttonType: "email",
@@ -20,7 +26,13 @@ const pages = [
     id: "02",
     title: "The Craft",
     subtitle: "Development & Design",
-    text: <>I work with Python and JavaScript, using <span className="text-foreground italic font-serif">frameworks</span> to build modern web apps. <span className="text-foreground italic font-serif">Graphics designing</span> has been my favourite for years.</>,
+    text: (
+      <>
+        I work with Python and JavaScript, using{" "}
+        <span className="text-foreground italic font-serif">frameworks</span> to build modern web apps.{" "}
+        <span className="text-foreground italic font-serif">Graphics designing</span> has been my favourite for years.
+      </>
+    ),
     button: "Social medias",
     buttonType: "social",
     links: [
@@ -34,7 +46,13 @@ const pages = [
     id: "03",
     title: "Beyond Code",
     subtitle: "Ideas & Explorations",
-    text: <>I'm fascinated by <span className="text-foreground italic font-serif">psychology</span> and <span className="text-foreground italic font-serif">astronomy</span> — understanding minds & exploring the cosmos. And yeah I love electronics.</>,
+    text: (
+      <>
+        I'm fascinated by <span className="text-foreground italic font-serif">psychology</span> and{" "}
+        <span className="text-foreground italic font-serif">astronomy</span> — understanding minds & exploring the cosmos.
+        And yeah I love electronics.
+      </>
+    ),
     button: "Checkout portfolio",
     action: "https://priyanshu.js.cool",
     buttonType: "default",
@@ -46,71 +64,113 @@ export default function Page() {
   const [mounted, setMounted] = useState(false)
   const [page, setPage] = useState(0)
 
-  useEffect(() => {
-    setMounted(true)
-    const start = window.scrollY
-    const bottom = document.documentElement.scrollHeight - window.innerHeight
-    animate(start, bottom, {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: v => window.scrollTo(0, v),
-      onComplete: () => animate(bottom, start, {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        onUpdate: v => window.scrollTo(0, v),
-      })
-    })
-  }, [])
-
+  useEffect(() => setMounted(true), [])
   if (!mounted) return null
+
   const current = pages[page]
 
   return (
     <main className="min-h-screen flex flex-col bg-background dark:bg-black text-foreground">
       <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
-        <header className="flex items-center justify-between mb-24 md:mb-32">
-          <h1 className="text-xl font-medium flex items-center gap-3">Priyanshu<div className="text-sm rounded-3xl px-3 border bg-white text-black">dev</div></h1>
-          <div className="flex gap-1 p-1 rounded-3xl bg-card border">
-            <button onClick={() => setTheme("dark")} className="p-1.5"><Moon className="w-3.5 h-3.5" /></button>
-            <button onClick={() => setTheme("light")} className="p-1.5 rounded-full bg-white shadow"><Sun className="w-3.5 h-3.5" /></button>
+        <header className="flex items-center justify-between mb-24">
+          <h1 className="text-xl font-medium flex items-center gap-3">
+            Priyanshu
+            <div className="text-sm rounded-3xl px-3 border bg-white text-black">dev</div>
+          </h1>
+
+          <div className="flex gap-1 p-1 rounded-3xl border bg-card">
+            <button onClick={() => setTheme("dark")} className="p-1.5">
+              <Moon className="w-3.5 h-3.5" />
+            </button>
+            <button onClick={() => setTheme("light")} className="p-1.5 rounded-full bg-white shadow">
+              <Sun className="w-3.5 h-3.5" />
+            </button>
           </div>
         </header>
 
         <section className="flex-1 flex flex-col justify-center max-w-2xl">
           <AnimatePresence mode="wait">
-            <motion.div key={page} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -24 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="space-y-10">
-              <div className="space-y-3">
-                <div className="text-primary text-xs tracking-[0.3em] uppercase">{current.id} — {current.subtitle}</div>
-                <h2 className="text-5xl md:text-8xl">{current.title}</h2>
+            <motion.div
+              key={page}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+              className="space-y-10"
+            >
+              <div>
+                <div className="text-primary text-xs tracking-[0.3em] uppercase">
+                  {current.id} — {current.subtitle}
+                </div>
+                <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
               </div>
-              <p className="text-xl md:text-2xl">{current.text}</p>
+
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
+                {current.text}
+              </p>
 
               {current.buttonType !== "social" ? (
-                <Link href={current.action} target={current.buttonType === "default" ? "_blank" : undefined} rel="noopener noreferrer" className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
-                  <span>{current.button}</span>
-                  {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
-                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                <Link href={current.action}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black cursor-pointer"
+                  >
+                    {current.button}
+                    {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
+                    {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                  </motion.div>
                 </Link>
               ) : (
-                <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
-                  <span>{current.button}</span>
-                  <motion.div initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: "auto" }} className="flex items-center gap-2">
-                    {current.links.map((link, i) => (
-                      <motion.a key={i} href={link.href} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.05 }} whileHover={{ scale: 1.2 }}>
-                        {link.icon}
-                      </motion.a>
-                    ))}
-                  </motion.div>
+                <div className="inline-flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
+                  {current.button}
+                  {current.links.map((l, i) => (
+                    <motion.a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      whileHover={{ scale: 1.25 }}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      {l.icon}
+                    </motion.a>
+                  ))}
                 </div>
               )}
             </motion.div>
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 flex items-center justify-between">
-          <button onClick={() => setPage(p => Math.max(p - 1, 0))} disabled={page === 0} className="flex items-center gap-1 px-7 py-2 rounded-3xl"><ArrowLeft className="w-3 h-3" />Back</button>
-          <div className="text-xs font-bold">0{page + 1}/0{pages.length}</div>
-          <button onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))} disabled={page === pages.length - 1} className="flex items-center gap-1 px-7 py-2 rounded-3xl">Next<ArrowRight className="w-3 h-3" /></button>
+        <footer className="mt-24 flex items-center justify-between border-t pt-12">
+          <motion.button
+            whileHover={{ y: -3 }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            onClick={() => setPage(p => Math.max(p - 1, 0))}
+            disabled={page === 0}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-200 disabled:opacity-40"
+          >
+            <ArrowLeft className="w-3 h-3" />
+            Back
+          </motion.button>
+
+          <div className="text-xs font-bold">
+            0{page + 1} / 0{pages.length}
+          </div>
+
+          <motion.button
+            whileHover={{ y: -3 }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 0.2 }}
+            onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))}
+            disabled={page === pages.length - 1}
+            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white disabled:opacity-40"
+          >
+            Next
+            <ArrowRight className="w-3 h-3" />
+          </motion.button>
         </footer>
       </div>
     </main>
