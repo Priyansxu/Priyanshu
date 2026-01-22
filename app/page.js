@@ -36,10 +36,10 @@ const pages = [
     button: "Social medias",
     buttonType: "social",
     links: [
-      { icon: <Github className="w-4 h-4" />, href: "https://github.com/Priyansxu" },
-      { icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
-      { icon: <Twitter className="w-4 h-4" />, href: "https://x.com/priyansxu_gupta" },
-      { icon: <Send className="w-4 h-4" />, href: "https://t.me/priyansxu_gupta" },
+      { label: "Github", icon: <Github className="w-4 h-4" />, href: "https://github.com/Priyansxu" },
+      { label: "Instagram", icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/priyansxu_gupta" },
+      { label: "Twitter", icon: <Twitter className="w-4 h-4" />, href: "https://x.com/priyansxu_gupta" },
+      { label: "Telegram", icon: <Send className="w-4 h-4" />, href: "https://t.me/priyansxu_gupta" },
     ],
   },
   {
@@ -72,19 +72,17 @@ export default function Page() {
   return (
     <main className="min-h-screen flex flex-col bg-background dark:bg-black text-foreground">
       <div className="relative z-10 flex flex-col min-h-screen max-w-4xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
-        <header className="flex items-center justify-between mb-24">
-          <h1 className="text-xl font-medium flex items-center gap-3">
+        <header className="flex items-center justify-between mb-24 md:mb-32">
+          <h1 className="text-xl font-medium font-lexend flex items-center gap-3">
             Priyanshu
-            <div className="text-sm rounded-3xl px-3 border bg-white text-black">
-              dev
-            </div>
+            <div className="text-sm rounded-3xl px-3 border bg-white text-black">dev</div>
           </h1>
 
-          <div className="flex gap-1 p-1 rounded-3xl border bg-card">
+          <div className="flex gap-1 p-1 rounded-3xl bg-card border">
             <button onClick={() => setTheme("dark")} className="p-1.5">
               <Moon className="w-3.5 h-3.5" />
             </button>
-            <button onClick={() => setTheme("light")} className="p-1.5 rounded-full bg-white shadow">
+            <button onClick={() => setTheme("light")} className="p-1.5 rounded-full bg-white shadow-xl">
               <Sun className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -97,78 +95,53 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1] }}
+              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
               className="space-y-10"
             >
-              <div className="space-y-3">
+              <div>
                 <div className="text-primary text-xs tracking-[0.3em] uppercase">
                   {current.id} — {current.subtitle}
                 </div>
-                <h2 className="text-5xl md:text-8xl font-mona">
-                  {current.title}
-                </h2>
+                <h2 className="text-5xl md:text-8xl font-mona">{current.title}</h2>
               </div>
 
-              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground max-w-xl">
-                {current.text}
-              </p>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">{current.text}</p>
 
               {current.buttonType !== "social" ? (
-                <Link href={current.action}>
-                  <motion.div
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black cursor-pointer"
-                  >
-                    {current.button}
-                    {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
-                    {current.buttonType === "email" && <Mail className="w-5 h-5" />}
-                  </motion.div>
+                <Link
+                  href={current.action}
+                  target={current.action?.startsWith("http") ? "_blank" : undefined}
+                  className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black"
+                >
+                  {current.button}
+                  {current.buttonType === "email" && <Mail className="w-5 h-5" />}
+                  {current.buttonType === "default" && <ArrowRight className="w-5 h-5" />}
                 </Link>
               ) : (
-                <div className="inline-flex items-center gap-4 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
+                <div className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg shadow-xl bg-black text-white dark:bg-white dark:text-black">
                   {current.button}
-                  {current.links.map((l, i) => (
-                    <motion.a
-                      key={l.href}
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.2 }}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.05 }}
-                    >
-                      {l.icon}
-                    </motion.a>
-                  ))}
+                  <div className="flex gap-3">
+                    {current.links.map((link) => (
+                      <Link key={link.href} href={link.href} target="_blank">
+                        {link.icon}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </motion.div>
           </AnimatePresence>
         </section>
 
-        <footer className="mt-24 flex items-center justify-between border-t pt-12">
-          <button
-            onClick={() => setPage(p => Math.max(p - 1, 0))}
-            disabled={page === 0}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-200 text-zinc-600 disabled:opacity-40"
-          >
-            <ArrowLeft className="w-3 h-3" />
-            Back
+        <footer className="mt-24 flex items-center justify-between">
+          <button onClick={() => setPage(p => Math.max(p - 1, 0))} disabled={page === 0}>
+            <ArrowLeft className="w-4 h-4" />
           </button>
 
-          <div className="text-xs font-bold">
-            0{page + 1} / 0{pages.length}
-          </div>
+          <span>{page + 1} / {pages.length}</span>
 
-          <button
-            onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))}
-            disabled={page === pages.length - 1}
-            className="flex items-center gap-1 px-7 py-2 rounded-3xl text-sm font-bold bg-zinc-900 text-white disabled:opacity-40"
-          >
-            Next
-            <ArrowRight className="w-3 h-3" />
+          <button onClick={() => setPage(p => Math.min(p + 1, pages.length - 1))} disabled={page === pages.length - 1}>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </footer>
       </div>
