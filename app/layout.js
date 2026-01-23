@@ -13,7 +13,7 @@ export const metadata = {
   description: 'Developer & Designer | Building things, questioning everything, sharing the journey.',
 
   alternates: {
-    canonical: '/',
+  canonical: 'https://priyanshu.is-a.dev/',
   },
 
   robots: {
